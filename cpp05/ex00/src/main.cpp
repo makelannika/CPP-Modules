@@ -6,36 +6,34 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 15:50:49 by amakela           #+#    #+#             */
-/*   Updated: 2024/10/31 20:17:19 by amakela          ###   ########.fr       */
+/*   Updated: 2024/10/31 21:37:38 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 int	main() {
+	Bureaucrat b1("Bob", 2), b2("Rob", 149);
+	std::cout << b1 << std::endl << b2 << std::endl;
 	try {
-		Bureaucrat b1("Bob", 2);
-		Bureaucrat b2("Rob", 149);
-		std::cout << b1 << std::endl;
-		std::cout << b2 << std::endl;
+		Bureaucrat b3("Todd", 151);
+	} catch (std::exception& e) {
+		std::cerr << e.what() << std::endl;
+	}
+	
+	try {
 		b1.incrementGrade();
 		b2.decrementGrade();
-		std::cout << b1 << std::endl;
-		std::cout << b2 << std::endl;
-		} catch (Bureaucrat::GradeTooHighException& e) {
+		b1.incrementGrade();
+	} catch (std::exception& e) {
 			std::cerr << e.what() << std::endl;
-		} catch (Bureaucrat::GradeTooLowException& e) {
-			std::cerr << e.what() << std::endl;
-		}
+	}
+	std::cout << b1 << std::endl << b2 << std::endl;
 
-	// try {
-	// 	Bureaucrat b1("Bob", 1);
-	// 	std::cout << b1 << std::endl;
-	// 	Bureaucrat b2("Rob", 151);
-	// 	std::cout << b2 << std::endl;
-	// 	} catch (Bureaucrat::GradeTooHighException& e) {
-	// 		std::cerr << e.what() << std::endl;
-	// 	} catch (Bureaucrat::GradeTooLowException& e) {
-	// 		std::cerr << e.what() << std::endl;
-	// 	}
+	try {
+		b2.decrementGrade();
+	} catch (std::exception& e) {
+			std::cerr << e.what() << std::endl;
+	}
+	std::cout << b1 << std::endl << b2 << std::endl;
 }
