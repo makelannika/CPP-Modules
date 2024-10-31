@@ -5,14 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/10/31 15:49:07 by amakela           #+#    #+#              #
-#    Updated: 2024/10/31 20:40:06 by amakela          ###   ########.fr        #
+#    Created: 2024/10/31 20:38:08 by amakela           #+#    #+#              #
+#    Updated: 2024/10/31 20:39:52 by amakela          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	bureaucrat
+NAME		=	form
 
-CPPFILES	=	src/main.cpp	src/Bureaucrat.cpp
+CPPFILES	=	src/main.cpp	src/Form.cpp
  
 OFILES		=	$(CPPFILES:.cpp=.o)
 
