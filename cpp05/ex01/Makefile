@@ -6,13 +6,13 @@
 #    By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/31 20:38:08 by amakela           #+#    #+#              #
-#    Updated: 2024/10/31 20:39:52 by amakela          ###   ########.fr        #
+#    Updated: 2024/10/31 20:50:43 by amakela          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	form
 
-CPPFILES	=	src/main.cpp	src/Form.cpp
+CPPFILES	=	src/main.cpp	src/Bureaucrat	src/Form.cpp
  
 OFILES		=	$(CPPFILES:.cpp=.o)
 
