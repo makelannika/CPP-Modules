@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:39:26 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/06 21:07:55 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/06 21:23:17 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ unsigned int	Form::getGradeToExecute() const {
 
 void	Form::beSigned(Bureaucrat& bureaucrat) {
 	if (bureaucrat.getGrade() > gradeToSign)
-		throw Form::GradeTooLowException("Bureaucrat's grade is too low to sign the form\n");
+		throw Form::GradeTooLowException(bureaucrat.getName() + "'s grade is too low to sign form " + name + "\n");
 	isSigned = true;
 }
 
