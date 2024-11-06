@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:39:26 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/06 20:56:41 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/06 21:07:55 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ Form::Form() : isSigned(false), gradeToSign(150), gradeToExecute(150) {}
 Form::Form(std::string name, unsigned int toSign, unsigned int toExec)
 : name(name), gradeToSign(toSign), gradeToExecute(toExec) {
 	if (toSign < 1 || toExec < 1)
-		throw Form::GradeTooHighException("Grade given is too high");
+		throw Form::GradeTooHighException("Grade given is too high\n");
 	if (toSign > 150 || toExec > 150)
-		throw Form::GradeTooLowException("Grade given is too low");
+		throw Form::GradeTooLowException("Grade given is too low\n");
 }
 
 Form::Form(const Form& obj) : name(obj.name), isSigned(obj.isSigned), gradeToSign(obj.gradeToSign), gradeToExecute(obj.gradeToExecute) {}
@@ -48,7 +48,7 @@ unsigned int	Form::getGradeToExecute() const {
 
 void	Form::beSigned(Bureaucrat& bureaucrat) {
 	if (bureaucrat.getGrade() > gradeToSign)
-		throw Form::GradeTooLowException("Bureaucrat's grade is too low to sign the form");
+		throw Form::GradeTooLowException("Bureaucrat's grade is too low to sign the form\n");
 	isSigned = true;
 }
 
@@ -72,7 +72,7 @@ const char*	Form::GradeTooLowException::what() const noexcept {
 
 std::ostream&	operator<<(std::ostream& out, const Form& obj) {
 	std::cout << std::boolalpha;
-	out << "Form: " << obj.getName() << std::endl
+	out << "Form: " + obj.getName() << std::endl
 	<< "Signed: " << obj.getStatus() << std::endl
 	<< "Grade to sign: " << obj.getGradeToSign() << std::endl
 	<< "Grade to execute: " << obj.getGradeToExecute() << std::endl;
