@@ -6,13 +6,13 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 14:19:56 by amakela           #+#    #+#             */
-/*   Updated: 2024/10/31 20:11:18 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/06 20:51:36 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() {}
+Bureaucrat::Bureaucrat() : grade(150) {}
 
 Bureaucrat::Bureaucrat(const std::string name, unsigned int grade) : name(name) {
 	if (grade > 150)
@@ -22,13 +22,11 @@ Bureaucrat::Bureaucrat(const std::string name, unsigned int grade) : name(name) 
 	this->grade = grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& obj) {
-	Bureaucrat(obj.getName(), obj.getGrade());
-}
+Bureaucrat::Bureaucrat(const Bureaucrat& obj) : name(obj.name), grade(obj.grade) {}
 
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& obj) {
 	if (this != &obj)
-		grade = obj.getGrade();
+		grade = obj.grade;
 	return *this;
 }
 
@@ -52,6 +50,11 @@ void	Bureaucrat::decrementGrade() {
 	grade++;
 }
 
+void	Bureaucrat::signForm(Form& form) {
+	form.beSigned(*this);
+	std::cout << name << " signed form " << form.getName() << std::endl;
+}
+
 Bureaucrat::~Bureaucrat() {}
 
 Bureaucrat::GradeTooHighException::GradeTooHighException(std::string msg) {
@@ -71,6 +74,6 @@ const char*	Bureaucrat::GradeTooLowException::what() const noexcept {
 }
 
 std::ostream&	operator<<(std::ostream& out, const Bureaucrat& obj) {
-	out << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ".";
+	out << obj.getName() << ", bureaucrat grade " << obj.getGrade() << "." << std::endl;
 	return out;
 }
