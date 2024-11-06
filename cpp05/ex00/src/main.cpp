@@ -6,15 +6,15 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 15:50:49 by amakela           #+#    #+#             */
-/*   Updated: 2024/10/31 21:37:38 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/06 17:52:10 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 int	main() {
-	Bureaucrat b1("Bob", 2), b2("Rob", 149);
-	std::cout << b1 << std::endl << b2 << std::endl;
+	Bureaucrat b1("Bob", 2), b2("Rob", 149), b3;
+	std::cout << b1 << std::endl << b2 << std::endl << b3 << std::endl;
 	try {
 		Bureaucrat b3("Todd", 151);
 	} catch (std::exception& e) {

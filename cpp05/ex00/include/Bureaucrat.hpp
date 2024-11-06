@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 15:09:32 by amakela           #+#    #+#             */
-/*   Updated: 2024/10/31 20:02:09 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/06 17:57:59 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Bureaucrat {
 	private:
 		const std::string	name;
 		unsigned int		grade;
-		
+
 	public:
 		Bureaucrat();
 		Bureaucrat(const std::string name, unsigned int grade);
