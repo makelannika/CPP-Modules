@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 19:10:36 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/07 11:30:26 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/07 12:30:49 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,8 @@ void	test1() {
 }
 
 int	main() {
-	Bureaucrat	b1("Bob", 2);
-	Form		f1("f1", 15, 15);
-	Form		f2("f2", 1, 1);
+	Bureaucrat	bob("Bob", 2);
+	Form		f1("f1", 15, 15), f2("f2", 1, 1);
 
 	/* creating forms with invalid grades */
 	for (auto formTest : {test1, test2, test3, test4}) {
@@ -45,14 +44,14 @@ int	main() {
 	std::cout << std::endl;
 
 	/* info before signing */
-	std::cout << b1 << std::endl;
+	std::cout << bob << std::endl;
 	std::cout << f1 << std::endl;
 	std::cout << f2 << std::endl;
 	
 	/* trying to sign the forms */
 	try {
-		b1.signForm(f1);
-		b1.signForm(f2);
+		bob.signForm(f1);
+		bob.signForm(f2);
 	} catch (std::exception& e) {
 		std::cerr << e.what() << std::endl;
 	}

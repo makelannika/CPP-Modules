@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 15:50:49 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/07 12:19:38 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/07 12:28:33 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ int	main() {
 	}
 	std::cout << std::endl;
 	
-	/* bureaucrat info before */
+	/* bureaucrat info before incrementing/decrementing */
 	std::cout << bob << rob << std::endl;
 
-	/* incrementing Bob's grade twice */
+	/* trying to increment Bob's grade twice */
 	try {
 		bob.incrementGrade();
 		bob.incrementGrade();
@@ -44,13 +44,13 @@ int	main() {
 			std::cerr << e.what() << std::endl;
 	}
 
-	/* decrementing Rob's grade twice */
+	/* trying to decrement Rob's grade twice */
 	try {
 		rob.decrementGrade();
 		rob.decrementGrade();
 	} catch (std::exception& e) {
 			std::cerr << e.what() << std::endl;
 	}
-	/* bureaucrat info after */
+	/* bureaucrat info after incrementing/decrementing */
 	std::cout << bob << rob << std::endl;
 }
