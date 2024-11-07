@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 22:05:23 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/07 22:36:58 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/07 23:16:51 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define INTERN_HPP
 
 #include <string>
+#include <iostream>
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
