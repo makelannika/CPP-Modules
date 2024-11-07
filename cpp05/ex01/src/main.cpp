@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 19:10:36 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/07 12:30:49 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/07 14:35:16 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main() {
 		try {
 			formTest();
 		} catch (std::exception& e) {
-			std::cout << e.what();
+			std::cerr << e.what();
 		}
 	}
 	std::cout << std::endl;
