@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:39:18 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/06 20:38:08 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/07 10:56:27 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ class Form {
 		const std::string	name;
 		bool				isSigned;
 		const unsigned int	gradeToSign;
-		const unsigned int	gradeToExecute;
+		const unsigned int	gradeToExec;
 
 	public:
 		Form();
-		Form(std::string name, unsigned int toSign, unsigned int toExecute);
+		Form(std::string name, unsigned int toSign, unsigned int toExec);
 		~Form();
 		
 		Form(const Form& obj);
@@ -38,7 +38,7 @@ class Form {
 		const std::string	getName() const;
 		bool				getStatus() const;
 		unsigned int		getGradeToSign() const;
-		unsigned int		getGradeToExecute() const;
+		unsigned int		getGradeToExec() const;
 		void				beSigned(Bureaucrat& bureaucrat);
 		
 		class GradeTooHighException : public std::exception {
@@ -46,7 +46,7 @@ class Form {
 				std::string	msg;
 			public:
 				GradeTooHighException(std::string msg);
-				const char* what() const noexcept override;
+				const char* what() const _NOEXCEPT override;
 		};
 
 		class GradeTooLowException : public std::exception {
@@ -54,7 +54,7 @@ class Form {
 				std::string	msg;
 			public:
 				GradeTooLowException(std::string msg);
-				const char*	what() const noexcept override;
+				const char*	what() const _NOEXCEPT override;
 		};
 };
 
