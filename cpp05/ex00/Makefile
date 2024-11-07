@@ -6,7 +6,7 @@
 #    By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/31 15:49:07 by amakela           #+#    #+#              #
-#    Updated: 2024/10/31 20:40:06 by amakela          ###   ########.fr        #
+#    Updated: 2024/11/07 11:58:20 by amakela          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OFILES		=	$(CPPFILES:.cpp=.o)
 
 HEADERS		=	-I include
 
-CC			=	c++
+CC			=	c++ -std=c++11
 
 FLAGS		=	-Wall -Wextra -Werror
 
