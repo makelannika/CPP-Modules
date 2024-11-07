@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:16:19 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/07 17:18:53 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/07 20:47:38 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class PresidentialPardonForm : public AForm {
         PresidentialPardonForm(const PresidentialPardonForm& obj);
         PresidentialPardonForm&  operator=(const PresidentialPardonForm& obj);
 
-        void	execute(Bureaucrat&) const override;
+        void	execute(Bureaucrat& executor) const override;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 14:39:49 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/07 16:37:36 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/07 20:46:30 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class RobotomyRequestForm : public AForm {
         RobotomyRequestForm(const RobotomyRequestForm& obj);
         RobotomyRequestForm&  operator=(const RobotomyRequestForm& obj);
 
-        void	execute(Bureaucrat&) const override;
+        void	execute(Bureaucrat& executor) const override;
 };
 
 #endif
