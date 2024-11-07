@@ -6,19 +6,21 @@
 #    By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/06 21:26:44 by amakela           #+#    #+#              #
-#    Updated: 2024/11/06 21:26:51 by amakela          ###   ########.fr        #
+#    Updated: 2024/11/07 17:27:55 by amakela          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	
+NAME		=	form
 
-CPPFILES	=	
+CPPFILES	=	src/ShrubberyCreationForm.cpp	src/AForm.cpp		\
+				src/RobotomyRequestForm.cpp		src/Bureaucrat.cpp	\
+				src/PresidentialPardonForm.cpp	src/main.cpp
  
 OFILES		=	$(CPPFILES:.cpp=.o)
 
 HEADERS		=	-I include
 
-CC			=	c++
+CC			=	c++ -std=c++11
 
 FLAGS		=	-Wall -Wextra -Werror
 
