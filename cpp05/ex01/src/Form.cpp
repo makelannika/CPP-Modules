@@ -6,23 +6,26 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:39:26 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/06 21:23:17 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/07 11:01:12 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form() : isSigned(false), gradeToSign(150), gradeToExecute(150) {}
+Form::Form() : isSigned(false), gradeToSign(150), gradeToExec(150) {}
 
-Form::Form(std::string name, unsigned int toSign, unsigned int toExec)
-: name(name), gradeToSign(toSign), gradeToExecute(toExec) {
-	if (toSign < 1 || toExec < 1)
-		throw Form::GradeTooHighException("Grade given is too high\n");
-	if (toSign > 150 || toExec > 150)
-		throw Form::GradeTooLowException("Grade given is too low\n");
+Form::Form(std::string name, unsigned int toSign, unsigned int toExec) : name(name), gradeToSign(toSign), gradeToExec(toExec) {
+	if (toSign < 1)
+		throw Form::GradeTooHighException("Grade required to sign the form is too high\n");
+	if (toExec < 1)
+		throw Form::GradeTooHighException("Grade required to execute the form is too high\n");
+	if (toSign > 150)
+		throw Form::GradeTooLowException("Grade required to sign the form is too low\n");
+	if (toExec > 150)
+		throw Form::GradeTooLowException("Grade required to execute the form is too low\n");
 }
 
-Form::Form(const Form& obj) : name(obj.name), isSigned(obj.isSigned), gradeToSign(obj.gradeToSign), gradeToExecute(obj.gradeToExecute) {}
+Form::Form(const Form& obj) : name(obj.name), isSigned(obj.isSigned), gradeToSign(obj.gradeToSign), gradeToExec(obj.gradeToExec) {}
 
 Form&	Form::operator=(const Form& obj) {
 	if (this != &obj)
@@ -42,8 +45,8 @@ unsigned int	Form::getGradeToSign() const {
 	return gradeToSign;
 }
 
-unsigned int	Form::getGradeToExecute() const {
-	return gradeToExecute;	
+unsigned int	Form::getGradeToExec() const {
+	return gradeToExec;	
 }
 
 void	Form::beSigned(Bureaucrat& bureaucrat) {
@@ -75,6 +78,6 @@ std::ostream&	operator<<(std::ostream& out, const Form& obj) {
 	out << "Form: " + obj.getName() << std::endl
 	<< "Signed: " << obj.getStatus() << std::endl
 	<< "Grade to sign: " << obj.getGradeToSign() << std::endl
-	<< "Grade to execute: " << obj.getGradeToExecute() << std::endl;
+	<< "Grade to execute: " << obj.getGradeToExec() << std::endl;
 	return out;
 }
