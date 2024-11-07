@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 15:09:32 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/07 10:48:09 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/07 12:03:12 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ class Bureaucrat {
 				
 			public:
 				GradeTooHighException(std::string msg);
-				const char* what() const _NOEXCEPT override;
+				const char* what() const noexcept override;
 		};
 		
 		class GradeTooLowException : public std::exception {
@@ -54,7 +54,7 @@ class Bureaucrat {
 				
 			public:
 				GradeTooLowException(std::string msg);
-				const char* what() const _NOEXCEPT override;
+				const char* what() const noexcept override;
 		};
 };
 

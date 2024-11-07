@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:39:18 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/07 10:56:27 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/07 12:03:24 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ class Form {
 				std::string	msg;
 			public:
 				GradeTooHighException(std::string msg);
-				const char* what() const _NOEXCEPT override;
+				const char* what() const noexcept override;
 		};
 
 		class GradeTooLowException : public std::exception {
@@ -54,7 +54,7 @@ class Form {
 				std::string	msg;
 			public:
 				GradeTooLowException(std::string msg);
-				const char*	what() const _NOEXCEPT override;
+				const char*	what() const noexcept override;
 		};
 };
 
