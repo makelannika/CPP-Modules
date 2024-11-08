@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:39:26 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/08 12:31:49 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/08 14:01:43 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 AForm::AForm() : isSigned(false), gradeToSign(150), gradeToExec(150) {}
 
-AForm::AForm(std::string name, std::string target, int toSign, int toExec) : name(name), target(target), gradeToSign(toSign), gradeToExec(toExec) {
+AForm::AForm(std::string name, std::string target, int toSign, int toExec) : name(name), target(target), isSigned(false), gradeToSign(toSign), gradeToExec(toExec) {
 	if (toSign < 1)
 		throw AForm::GradeTooHighException("Grade required to sign the form is too high\n");
 	if (toExec < 1)
@@ -58,13 +58,6 @@ void	AForm::beSigned(Bureaucrat& bureaucrat) {
 		throw AForm::GradeTooLowException(bureaucrat.getName() + "'s grade is too low to sign " + name + " form.\n");
 	isSigned = true;
 	std::cout << bureaucrat.getName() + " signed " + name + " form." << std::endl;
-}
-
-void	AForm::execute(Bureaucrat& executor) const {
-	if (!isSigned)
-		throw AForm::UnAuthorizedException(name + " form is not signed to be executed.\n");
-	if (executor.getGrade() > gradeToExec)
-		throw AForm::UnAuthorizedException(executor.getName() + "'s grade is not high enough to execute " + name + " form.\n");
 }
 
 AForm::~AForm() {}

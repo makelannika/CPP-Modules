@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:39:18 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/08 12:31:14 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/08 13:59:11 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 #include <exception>
 #include "Bureaucrat.hpp"
 
-class Bureaucrat;
-
 class AForm {
 	private:
 		const std::string	name;
@@ -27,13 +25,11 @@ class AForm {
 		bool				isSigned;
 		const int			gradeToSign;
 		const int			gradeToExec;
-		AForm();
-
-	protected:
-		AForm(std::string name, std::string target, int toSign, int toExec);
-		AForm(const AForm& obj);
 
 	public:
+		AForm();
+		AForm(std::string name, std::string target, int toSign, int toExec);
+		AForm(const AForm& obj);
 		virtual ~AForm();
 		
 		AForm&	operator=(const AForm& obj);
@@ -44,7 +40,7 @@ class AForm {
 		int					getGradeToSign() const;
 		int					getGradeToExec() const;
 		void				beSigned(Bureaucrat& bureaucrat);
-		virtual void		execute(Bureaucrat& executor) const;
+		virtual void		execute(Bureaucrat& executor) const = 0;
 		
 		class GradeTooHighException : public std::exception {
 			private:
@@ -74,3 +70,4 @@ class AForm {
 std::ostream&	operator<<(std::ostream& out, const AForm& obj);
 
 #endif
+
