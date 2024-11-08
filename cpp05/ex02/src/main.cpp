@@ -6,24 +6,22 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 12:33:26 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/07 20:39:04 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/08 13:35:55 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AForm.hpp"
-#include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
 int main() {
-    std::srand(static_cast<unsigned>(std::time(0)));
+    std::srand(static_cast<unsigned>(time(0)));
     AForm* f1 = new ShrubberyCreationForm();
     AForm* f2 = new RobotomyRequestForm();
     AForm* f3 = new PresidentialPardonForm();
     Bureaucrat bob("Bob", 1), rob("Rob", 150);
 
-    /* trying to sign forms with invalid grade */
+    /* trying to sign forms with invalid bureaucrat grade */
     for (AForm* form : {f1, f2, f3}) {
         try {
             form->beSigned(rob);
@@ -32,6 +30,16 @@ int main() {
         }
     }
     std::cout << std::endl;
+
+	/* trying to execute forms that are not signed */
+	for (AForm* form : {f1, f2, f3}) {
+		try {
+			bob.executeForm(*form);
+		} catch (std::exception& e) {
+			std::cerr << e.what();
+		}
+	}
+	std::cout << std::endl;
 
     /* signing and executing all forms successfully */
     for (AForm* form : {f1, f2, f3}) {
