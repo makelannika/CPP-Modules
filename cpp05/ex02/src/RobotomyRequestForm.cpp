@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 14:39:47 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/07 18:44:32 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/08 13:20:58 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ RobotomyRequestForm&  RobotomyRequestForm::operator=(const RobotomyRequestForm& 
 }
 
 void	RobotomyRequestForm::execute(Bureaucrat& executor) const {
-    AForm::execute(executor);
+	if (!this->getStatus())
+		throw AForm::UnAuthorizedException(this->getName() + " form is not signed to be executed.\n");
+	if (executor.getGrade() > this->getGradeToExec())
+		throw AForm::UnAuthorizedException(executor.getName() + "'s grade is not high enough to execute " + this->getName() + " form.\n");
     std::cout << "Drilling noises... " << std::endl;
     if ((rand() % 2))
         std::cout << this->getTarget() << " has been robotomized successfully." << std::endl;

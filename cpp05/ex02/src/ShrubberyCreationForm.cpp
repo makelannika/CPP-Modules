@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 12:52:53 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/07 18:41:38 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/08 13:12:24 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,11 @@ ShrubberyCreationForm&  ShrubberyCreationForm::operator=(const ShrubberyCreation
 }
 
 void    ShrubberyCreationForm::execute(Bureaucrat& executor) const {
-    AForm::execute(executor);
+	if (!this->getStatus())
+		throw AForm::UnAuthorizedException(this->getName() + " form is not signed to be executed.\n");
+	if (executor.getGrade() > this->getGradeToExec())
+		throw AForm::UnAuthorizedException(executor.getName() + "'s grade is not high enough to execute " + this->getName() + " form.\n");
     std::ofstream file;
-
     file.open(this->getTarget() + "_shrubbery");
     if (file.is_open()) {
         file << "               "  << std::endl;
