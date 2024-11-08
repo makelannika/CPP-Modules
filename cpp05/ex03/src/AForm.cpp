@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:39:26 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/08 14:01:43 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/08 14:24:37 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ AForm&	AForm::operator=(const AForm& obj) {
 	return *this;
 }
 
-const std::string	AForm::getName() const {
+std::string	AForm::getName() const {
 	return name;
 }
 
-const std::string	AForm::getTarget() const {
+std::string	AForm::getTarget() const {
 	return target;
 }
 

@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:39:18 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/08 13:59:11 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/08 14:24:13 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ class AForm {
 		
 		AForm&	operator=(const AForm& obj);
 
-		const std::string	getName() const;
-		const std::string	getTarget() const;
+		std::string			getName() const;
+		std::string			getTarget() const;
 		bool				getStatus() const;
 		int					getGradeToSign() const;
 		int					getGradeToExec() const;
