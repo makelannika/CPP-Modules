@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:39:26 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/07 11:01:12 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/08 12:29:17 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Form::Form() : isSigned(false), gradeToSign(150), gradeToExec(150) {}
 
-Form::Form(std::string name, unsigned int toSign, unsigned int toExec) : name(name), gradeToSign(toSign), gradeToExec(toExec) {
+Form::Form(std::string name, int toSign, int toExec) : name(name), isSigned(false), gradeToSign(toSign), gradeToExec(toExec) {
 	if (toSign < 1)
 		throw Form::GradeTooHighException("Grade required to sign the form is too high\n");
 	if (toExec < 1)
@@ -41,11 +41,11 @@ bool	Form::getStatus() const {
 	return isSigned;
 }
 
-unsigned int	Form::getGradeToSign() const {
+int	Form::getGradeToSign() const {
 	return gradeToSign;
 }
 
-unsigned int	Form::getGradeToExec() const {
+int	Form::getGradeToExec() const {
 	return gradeToExec;	
 }
 
