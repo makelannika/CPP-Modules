@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 14:19:56 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/08 12:27:18 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/08 14:26:37 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& obj) {
 	return *this;
 }
 
-const std::string	Bureaucrat::getName() const {
+std::string	Bureaucrat::getName() const {
 	return name;
 }
 

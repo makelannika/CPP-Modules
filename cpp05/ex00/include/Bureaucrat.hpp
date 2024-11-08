@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 15:09:32 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/08 12:28:07 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/08 14:26:30 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Bureaucrat {
 		Bureaucrat&	operator=(const Bureaucrat& obj);
 		
 		
-		const std::string	getName() const;
+		std::string			getName() const;
 		int					getGrade() const;
 		void				incrementGrade();
 		void				decrementGrade();
