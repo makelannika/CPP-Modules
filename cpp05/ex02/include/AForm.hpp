@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:39:18 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/07 18:33:37 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/08 12:59:55 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,18 @@
 #include <exception>
 #include "Bureaucrat.hpp"
 
-class Bureaucrat;
-
 class AForm {
 	private:
 		const std::string	name;
 		const std::string	target;
 		bool				isSigned;
-		const unsigned int	gradeToSign;
-		const unsigned int	gradeToExec;
-		AForm();
-
-	protected:
-		AForm(std::string name, std::string target, unsigned int toSign, unsigned int toExec);
-		AForm(const AForm& obj);
+		const int			gradeToSign;
+		const int			gradeToExec;
 
 	public:
+		AForm();
+		AForm(std::string name, std::string target, int toSign, int toExec);
+		AForm(const AForm& obj);
 		virtual ~AForm();
 		
 		AForm&	operator=(const AForm& obj);
@@ -41,10 +37,10 @@ class AForm {
 		const std::string	getName() const;
 		const std::string	getTarget() const;
 		bool				getStatus() const;
-		unsigned int		getGradeToSign() const;
-		unsigned int		getGradeToExec() const;
+		int					getGradeToSign() const;
+		int					getGradeToExec() const;
 		void				beSigned(Bureaucrat& bureaucrat);
-		virtual void		execute(Bureaucrat& executor) const;
+		virtual void		execute(Bureaucrat& executor) const = 0;
 		
 		class GradeTooHighException : public std::exception {
 			private:
