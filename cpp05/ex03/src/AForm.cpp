@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:39:26 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/07 23:08:24 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/08 12:31:49 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 AForm::AForm() : isSigned(false), gradeToSign(150), gradeToExec(150) {}
 
-AForm::AForm(std::string name, std::string target, unsigned int toSign, unsigned int toExec) : name(name), target(target), gradeToSign(toSign), gradeToExec(toExec) {
+AForm::AForm(std::string name, std::string target, int toSign, int toExec) : name(name), target(target), gradeToSign(toSign), gradeToExec(toExec) {
 	if (toSign < 1)
 		throw AForm::GradeTooHighException("Grade required to sign the form is too high\n");
 	if (toExec < 1)
@@ -45,11 +45,11 @@ bool	AForm::getStatus() const {
 	return isSigned;
 }
 
-unsigned int	AForm::getGradeToSign() const {
+int	AForm::getGradeToSign() const {
 	return gradeToSign;
 }
 
-unsigned int	AForm::getGradeToExec() const {
+int	AForm::getGradeToExec() const {
 	return gradeToExec;	
 }
 
