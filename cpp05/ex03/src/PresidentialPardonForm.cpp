@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:16:22 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/07 23:13:18 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/08 14:07:29 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ PresidentialPardonForm&  PresidentialPardonForm::operator=(const PresidentialPar
 }
 
 void    PresidentialPardonForm::execute(Bureaucrat& executor) const {
-    AForm::execute(executor);
+	if (!this->getStatus())
+		throw AForm::UnAuthorizedException(this->getName() + " form is not signed to be executed.\n");
+	if (executor.getGrade() > this->getGradeToExec())
+		throw AForm::UnAuthorizedException(executor.getName() + "'s grade is not high enough to execute " + this->getName() + " form.\n");
     std::cout << this->getTarget() + " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
 
