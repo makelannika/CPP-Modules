@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 14:19:56 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/07 12:20:42 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/08 12:27:18 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 Bureaucrat::Bureaucrat() : grade(150) {}
 
-Bureaucrat::Bureaucrat(const std::string name, unsigned int grade) : name(name) {
+Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name), grade(grade) {
 	if (grade > 150)
 		throw Bureaucrat::GradeTooLowException("Grade given for bureaucrat is too low\n");
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException("Grade given for bureaucrat is too high\n");
-	this->grade = grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& obj) : name(obj.name), grade(obj.grade) {}
@@ -34,19 +33,19 @@ const std::string	Bureaucrat::getName() const {
 	return name;
 }
 
-unsigned int	Bureaucrat::getGrade() const {
+int	Bureaucrat::getGrade() const {
 	return grade;
 }
 
 void	Bureaucrat::incrementGrade() {
 	if (grade == 1)
-		throw Bureaucrat::GradeTooHighException("Grade cannot be incremented\n");
+		throw Bureaucrat::GradeTooHighException("Bureaucrat grade cannot be incremented\n");
 	grade--;
 }
 
 void	Bureaucrat::decrementGrade() {
 	if (grade == 150)
-		throw Bureaucrat::GradeTooLowException("Grade cannot be decremented\n");
+		throw Bureaucrat::GradeTooLowException("Bureaucrat grade cannot be decremented\n");
 	grade++;
 }
 
