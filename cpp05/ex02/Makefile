@@ -6,11 +6,11 @@
 #    By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/06 21:26:44 by amakela           #+#    #+#              #
-#    Updated: 2024/11/07 17:27:55 by amakela          ###   ########.fr        #
+#    Updated: 2024/11/08 12:39:20 by amakela          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	form
+NAME		=	forms
 
 CPPFILES	=	src/ShrubberyCreationForm.cpp	src/AForm.cpp		\
 				src/RobotomyRequestForm.cpp		src/Bureaucrat.cpp	\
