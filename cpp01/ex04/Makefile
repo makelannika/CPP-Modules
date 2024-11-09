@@ -6,32 +6,32 @@
 #    By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/07 15:44:33 by amakela           #+#    #+#              #
-#    Updated: 2024/08/14 21:40:42 by amakela          ###   ########.fr        #
+#    Updated: 2024/11/09 23:35:37 by amakela          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	sedIsForLosers
 
-CPPFILES	=	src/main.cpp	src/Copier.cpp
+SRCS		=	src/main.cpp	src/Copier.cpp
  
-OFILES		=	$(CPPFILES:.cpp=.o)
+OBJS		=	$(SRCS:.cpp=.o)
 
 HEADERS		=	-I include
 
-CC			=	c++
+CXX			=	c++
 
 FLAGS		=	-Wall -Wextra -Werror
 
 %.o:%.cpp
-	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+	$(CXX) $(FLAGS) $(HEADERS) -c $< -o $@
 
 all: $(NAME)
 
-$(NAME): $(OFILES)
-	$(CC) $(FLAGS) $(OFILES) -o $(NAME)
+$(NAME): $(OBJS)
+	$(CXX) $(FLAGS) $(OBJS) -o $(NAME)
 
 clean:
-	rm -f $(OFILES)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)

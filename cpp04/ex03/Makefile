@@ -6,33 +6,33 @@
 #    By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/27 18:20:39 by amakela           #+#    #+#              #
-#    Updated: 2024/08/28 20:26:01 by amakela          ###   ########.fr        #
+#    Updated: 2024/11/09 23:40:51 by amakela          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	program
 
-CPPFILES	=	src/main.cpp	src/AMateria.cpp	src/Cure.cpp			\
+SRCS		=	src/main.cpp	src/AMateria.cpp	src/Cure.cpp			\
 				src/Ice.cpp		src/Character.cpp	src/MateriaSource.cpp
  
-OFILES		=	$(CPPFILES:.cpp=.o)
+OBJS		=	$(SRCS:.cpp=.o)
 
 HEADERS		=	-I include
 
-CC			=	c++ -std=c++11
+CXX			=	c++ -std=c++11
 
 FLAGS		=	-Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(OFILES)
-	$(CC) $(FLAGS) $(OFILES) -o $(NAME)
+$(NAME): $(OBJS)
+	$(CXX) $(FLAGS) $(OBJS) -o $(NAME)
 
 %.o:%.cpp
-	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+	$(CXX) $(FLAGS) $(HEADERS) -c $< -o $@
 
 clean:
-	rm -f $(OFILES)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)

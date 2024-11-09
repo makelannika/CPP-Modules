@@ -6,32 +6,32 @@
 #    By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/14 12:12:12 by amakela           #+#    #+#              #
-#    Updated: 2024/08/14 22:11:43 by amakela          ###   ########.fr        #
+#    Updated: 2024/11/09 23:36:51 by amakela          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	harlFilter
 
-CPPFILES	=	src/main.cpp	src/Harl.cpp
+SRCS		=	src/main.cpp	src/Harl.cpp
  
-OFILES		=	$(CPPFILES:.cpp=.o)
+OBJS		=	$(SRCS:.cpp=.o)
 
 HEADERS		=	-I include
 
-CC			=	c++
+CXX			=	c++
 
 FLAGS		=	-Wall -Wextra -Werror
 
 %.o:%.cpp
-	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+	$(CXX) $(FLAGS) $(HEADERS) -c $< -o $@
 
 all: $(NAME)
 
-$(NAME): $(OFILES)
-	$(CC) $(FLAGS) $(OFILES) -o $(NAME)
+$(NAME): $(OBJS)
+	$(CXX) $(FLAGS) $(OBJS) -o $(NAME)
 
 clean:
-	rm -f $(OFILES)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)

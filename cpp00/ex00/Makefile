@@ -6,7 +6,7 @@
 #    By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/29 23:37:14 by amakela           #+#    #+#              #
-#    Updated: 2024/08/30 17:02:53 by amakela          ###   ########.fr        #
+#    Updated: 2024/11/09 23:27:44 by amakela          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,17 +16,17 @@ CPPFILES	=	megaphone.cpp
 
 OFILES		=	$(CPPFILES:.cpp=.o)
 
-CC			=	c++
+CXX			=	c++
 
 FLAGS		=	-Wall -Wextra -Werror
 
 all: $(NAME)
 
 $(NAME): $(OFILES)
-	$(CC) $(FLAGS) $(OFILES) -o $(NAME)
+	$(CXX) $(FLAGS) $(OFILES) -o $(NAME)
 
 %.o:%.cpp
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CXX) $(FLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OFILES)

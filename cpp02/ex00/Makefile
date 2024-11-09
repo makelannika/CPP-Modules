@@ -6,32 +6,32 @@
 #    By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/17 14:14:35 by amakela           #+#    #+#              #
-#    Updated: 2024/08/18 22:20:32 by amakela          ###   ########.fr        #
+#    Updated: 2024/11/09 23:37:15 by amakela          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	fixed
 
-CPPFILES	=	src/main.cpp	src/Fixed.cpp
+SRCS		=	src/main.cpp	src/Fixed.cpp
  
-OFILES		=	$(CPPFILES:.cpp=.o)
+OBJS		=	$(SRCS:.cpp=.o)
 
 HEADERS		=	-I include
 
-CC			=	c++
+CXX			=	c++
 
 FLAGS		=	-Wall -Wextra -Werror
 
 %.o:%.cpp
-	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+	$(CXX) $(FLAGS) $(HEADERS) -c $< -o $@
 
 all: $(NAME)
 
-$(NAME): $(OFILES)
-	$(CC) $(FLAGS) $(OFILES) -o $(NAME)
+$(NAME): $(OBJS)
+	$(CXX) $(FLAGS) $(OBJS) -o $(NAME)
 
 clean:
-	rm -f $(OFILES)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)

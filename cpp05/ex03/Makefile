@@ -6,35 +6,35 @@
 #    By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/06 21:26:44 by amakela           #+#    #+#              #
-#    Updated: 2024/11/07 22:48:25 by amakela          ###   ########.fr        #
+#    Updated: 2024/11/09 23:42:17 by amakela          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	intern
 
-CPPFILES	=	src/ShrubberyCreationForm.cpp	src/AForm.cpp		\
+SRCS		=	src/ShrubberyCreationForm.cpp	src/AForm.cpp		\
 				src/RobotomyRequestForm.cpp		src/Bureaucrat.cpp	\
 				src/PresidentialPardonForm.cpp	src/main.cpp		\
 				src/Intern.cpp
  
-OFILES		=	$(CPPFILES:.cpp=.o)
+OBJS		=	$(SRCS:.cpp=.o)
 
 HEADERS		=	-I include
 
-CC			=	c++ -std=c++11
+CXX			=	c++ -std=c++11
 
 FLAGS		=	-Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(OFILES)
-	$(CC) $(FLAGS) $(OFILES) -o $(NAME)
+$(NAME): $(OBJS)
+	$(CXX) $(FLAGS) $(OBJS) -o $(NAME)
 
 %.o:%.cpp
-	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+	$(CXX) $(FLAGS) $(HEADERS) -c $< -o $@
 
 clean:
-	rm -f $(OFILES)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)

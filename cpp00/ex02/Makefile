@@ -6,7 +6,7 @@
 #    By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/14 15:27:57 by amakela           #+#    #+#              #
-#    Updated: 2024/08/30 18:31:16 by amakela          ###   ########.fr        #
+#    Updated: 2024/11/09 23:28:09 by amakela          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,17 +18,17 @@ OFILES		=	$(CPPFILES:.cpp=.o)
 
 HEADERS		=	-I include
 
-CC			=	c++
+CXX			=	c++
 
 FLAGS		=	-Wall -Wextra -Werror
 
 all: $(NAME)
 
 $(NAME): $(OFILES)
-	$(CC) $(OFILES) -o $(NAME)
+	$(CXX) $(OFILES) -o $(NAME)
 	
 %.o:%.cpp
-	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+	$(CXX) $(FLAGS) $(HEADERS) -c $< -o $@
 
 clean:
 	rm -f $(OFILES)
