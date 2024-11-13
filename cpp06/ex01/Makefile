@@ -6,14 +6,14 @@
 #    By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/10 00:04:22 by amakela           #+#    #+#              #
-#    Updated: 2024/11/10 00:04:31 by amakela          ###   ########.fr        #
+#    Updated: 2024/11/13 22:28:13 by amakela          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME		=	
+NAME		=	serializer
 
-SRCS		=	
+SRCS		=	src/Serializer.cpp	src/main.cpp
  
 OBJS		=	$(SRCS:.cpp=.o)
 
