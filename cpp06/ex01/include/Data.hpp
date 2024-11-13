@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 22:22:22 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/13 23:39:16 by amakela          ###   ########.fr       */
+/*   Created: 2024/11/13 23:37:39 by amakela           #+#    #+#             */
+/*   Updated: 2024/11/13 23:40:12 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZER_HPP
-# define SERIALIZER_HPP
+#ifndef DATA_HPP
+# define DATA_HPP
 
-#include <cstdint>
-#include "Data.hpp"
-
-class Serializer {
-    public:
-        Serializer() = delete;
-        ~Serializer() = delete;
-        Serializer(const Serializer& obj) = delete;
-        Serializer& operator=(const Serializer& obj) = delete;
-
-        static uintptr_t serialize(Data* ptr);
-        static Data* deserialize(uintptr_t raw);
-};
+typedef struct Data {
+    int     value;
+    float   anotherValue;
+} Data;
 
 #endif
