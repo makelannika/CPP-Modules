@@ -6,13 +6,13 @@
 #    By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/09 22:49:57 by amakela           #+#    #+#              #
-#    Updated: 2024/11/09 23:42:47 by amakela          ###   ########.fr        #
+#    Updated: 2024/11/13 15:19:17 by amakela          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	scalarConverter
 
-SRCS		=	
+SRCS		=	src/main.cpp	src/ScalarConverter.cpp
  
 OBJS		=	$(SRCS:.cpp=.o)
 
