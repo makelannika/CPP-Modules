@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:58:40 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/13 19:45:05 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/13 23:26:06 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,14 @@ int getType(std::string input) {
         } catch (std::exception& e) {}
     try {
         std::stof(input, &idx);
-        if (input.length() - 1 == idx && input[idx] == 'f')
+        if (input.length() - 1 == idx && input[idx] == 'f'
+            && input.find('.') != std::string::npos && input[idx - 1] != '.')
             return FLOAT;
         } catch (std::exception& e) {}
     try {
         std::stod(input, &idx);
-        if (input.length() == idx && input.find('.') != std::string::npos)
+        if (input.length() == idx && input[idx - 1] != '.'
+            && input.find('.') != std::string::npos)
             return DOUBLE;
         } catch (std::exception& e) {}
     return INVALID;
