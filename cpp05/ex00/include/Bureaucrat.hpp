@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 15:09:32 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/08 14:26:30 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/14 13:12:40 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,11 @@ class Bureaucrat {
 
 	public:
 		Bureaucrat();
-		Bureaucrat(const std::string name, int grade);
 		~Bureaucrat();
-		
 		Bureaucrat(const Bureaucrat& obj);
-		Bureaucrat&	operator=(const Bureaucrat& obj);
+		Bureaucrat&	operator=(const Bureaucrat& obj) = delete;
 		
+		Bureaucrat(const std::string name, int grade);	
 		
 		std::string			getName() const;
 		int					getGrade() const;
