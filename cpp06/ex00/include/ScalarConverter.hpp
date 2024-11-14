@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:54:40 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/13 19:15:03 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/14 18:47:53 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 # define SCALARCONVERTER_HPP
 
 #include <iostream>
-#include <string>
 #include <iomanip>
+#include <climits>
+#include <string>
+#include <limits>
 #include <cmath>
 
-enum { CHAR, INT, DOUBLE, FLOAT, INVALID };
+enum type { CHAR, INT, DOUBLE, FLOAT, INVALID };
 
 class ScalarConverter {
     public:
