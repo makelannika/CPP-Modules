@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 14:39:49 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/07 20:46:30 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/14 13:19:34 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@
 class RobotomyRequestForm : public AForm {
     public:
         RobotomyRequestForm();
-        RobotomyRequestForm(std::string target);
         ~RobotomyRequestForm() override;
-
         RobotomyRequestForm(const RobotomyRequestForm& obj);
-        RobotomyRequestForm&  operator=(const RobotomyRequestForm& obj);
+        RobotomyRequestForm&  operator=(const RobotomyRequestForm& obj) = delete;
+
+        RobotomyRequestForm(std::string target);
 
         void	execute(Bureaucrat& executor) const override;
 };

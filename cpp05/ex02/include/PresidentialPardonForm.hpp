@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:16:19 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/07 20:47:38 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/14 13:18:17 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@
 class PresidentialPardonForm : public AForm {
     public:
         PresidentialPardonForm();
-        PresidentialPardonForm(std::string target);
         ~PresidentialPardonForm() override;
-
         PresidentialPardonForm(const PresidentialPardonForm& obj);
-        PresidentialPardonForm&  operator=(const PresidentialPardonForm& obj);
+        PresidentialPardonForm&  operator=(const PresidentialPardonForm& obj) = delete;
+
+        PresidentialPardonForm(std::string target);
 
         void	execute(Bureaucrat& executor) const override;
 };

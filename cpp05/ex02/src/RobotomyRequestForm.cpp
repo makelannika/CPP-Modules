@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 14:39:47 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/08 13:20:58 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/14 13:20:44 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,6 @@ RobotomyRequestForm::RobotomyRequestForm() : AForm::AForm("robotomy", "Target", 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm::AForm("robotomy", target, 72, 45) {}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& obj) : AForm::AForm(obj) {}
-
-RobotomyRequestForm&  RobotomyRequestForm::operator=(const RobotomyRequestForm& obj) {
-    if (this != &obj)
-        AForm::operator=(obj);
-    return *this;
-}
 
 void	RobotomyRequestForm::execute(Bureaucrat& executor) const {
 	if (!this->getStatus())
