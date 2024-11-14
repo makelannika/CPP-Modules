@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:39:26 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/08 14:26:15 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/14 13:09:56 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,6 @@ Form::Form(std::string name, int toSign, int toExec) : name(name), isSigned(fals
 }
 
 Form::Form(const Form& obj) : name(obj.name), isSigned(obj.isSigned), gradeToSign(obj.gradeToSign), gradeToExec(obj.gradeToExec) {}
-
-Form&	Form::operator=(const Form& obj) {
-	if (this != &obj)
-		isSigned = obj.isSigned;
-	return *this;
-}
 
 std::string	Form::getName() const {
 	return name;

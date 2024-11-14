@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:39:18 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/08 14:26:11 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/14 13:10:54 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ class Form {
 
 	public:
 		Form();
-		Form(std::string name, int toSign, int toExec);
 		~Form();
-		
 		Form(const Form& obj);
-		Form&	operator=(const Form& obj);
+		Form& operator=(const Form& obj) = delete;
+		
+		Form(std::string name, int toSign, int toExec);
 
 		std::string			getName() const;
 		bool				getStatus() const;
