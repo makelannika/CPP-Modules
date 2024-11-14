@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:39:18 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/08 14:24:13 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/14 13:22:55 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ class AForm {
 
 	public:
 		AForm();
-		AForm(std::string name, std::string target, int toSign, int toExec);
 		AForm(const AForm& obj);
 		virtual ~AForm();
+		AForm&	operator=(const AForm& obj) = delete;
 		
-		AForm&	operator=(const AForm& obj);
+		AForm(std::string name, std::string target, int toSign, int toExec);
 
 		std::string			getName() const;
 		std::string			getTarget() const;

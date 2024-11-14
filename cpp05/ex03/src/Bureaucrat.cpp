@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 14:19:56 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/08 14:25:30 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/14 13:34:32 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,6 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name) {
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& obj) : name(obj.name), grade(obj.grade) {}
-
-Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& obj) {
-	if (this != &obj)
-		grade = obj.grade;
-	return *this;
-}
 
 std::string	Bureaucrat::getName() const {
 	return name;

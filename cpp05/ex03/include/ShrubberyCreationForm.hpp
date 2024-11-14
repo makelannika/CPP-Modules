@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 12:38:39 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/07 17:43:11 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/14 13:25:19 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@
 class ShrubberyCreationForm : public AForm {
     public:
         ShrubberyCreationForm();
-        ShrubberyCreationForm(std::string target);
         ~ShrubberyCreationForm() override;
-
         ShrubberyCreationForm(const ShrubberyCreationForm& obj);
-        ShrubberyCreationForm&  operator=(const ShrubberyCreationForm& obj);
+        ShrubberyCreationForm&  operator=(const ShrubberyCreationForm& obj) = delete;
+
+        ShrubberyCreationForm(std::string target);
 
         void	execute(Bureaucrat& executor) const override;
 };
