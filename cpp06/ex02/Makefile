@@ -6,14 +6,14 @@
 #    By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/10 00:06:16 by amakela           #+#    #+#              #
-#    Updated: 2024/11/10 00:06:23 by amakela          ###   ########.fr        #
+#    Updated: 2024/11/14 18:58:57 by amakela          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME		=	
+NAME		=	identifier
 
-SRCS		=	
+SRCS		=	src/main.cpp	src/Base.cpp	src/A.cpp	src/B.cpp	src/C.cpp
  
 OBJS		=	$(SRCS:.cpp=.o)
 
