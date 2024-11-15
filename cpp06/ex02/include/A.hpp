@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 19:00:47 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/14 19:02:55 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/15 18:46:16 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define A_HPP
 
 class A : public Base {
-	
+	public:
+		~A();
 };
 
 #endif

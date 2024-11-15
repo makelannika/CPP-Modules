@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 19:01:10 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/14 19:03:10 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/15 18:46:37 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define C_HPP
 
 class C : public Base {
-	
+	public:
+		~C();
 };
 
 #endif
