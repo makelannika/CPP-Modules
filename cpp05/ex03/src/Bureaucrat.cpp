@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 14:19:56 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/14 13:34:32 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/15 13:08:26 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,11 @@
 
 Bureaucrat::Bureaucrat() : grade(150) {}
 
-Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name) {
+Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name), grade(grade) {
 	if (grade > 150)
 		throw Bureaucrat::GradeTooLowException("Grade given for bureaucrat is too low\n");
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException("Grade given for bureaucrat is too high\n");
-	this->grade = grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& obj) : name(obj.name), grade(obj.grade) {}
