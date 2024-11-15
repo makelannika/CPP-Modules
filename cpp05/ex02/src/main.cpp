@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 12:33:26 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/15 13:20:08 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/15 13:44:12 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "PresidentialPardonForm.hpp"
 
 int main() {
-    std::srand(static_cast<unsigned>(time(0)));
+    std::srand(time(0));
     AForm* f1 = new ShrubberyCreationForm();
     AForm* f2 = new RobotomyRequestForm();
     AForm* f3 = new PresidentialPardonForm();
