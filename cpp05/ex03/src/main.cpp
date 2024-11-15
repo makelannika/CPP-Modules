@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 12:33:26 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/15 13:16:14 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/15 13:43:42 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "Intern.hpp"
 
 int main() {
-    std::srand(static_cast<unsigned>(time(0)));
+    std::srand(time(0));
     Intern someRandomIntern;
     AForm* forms[4];
     std::string formNames[] = {"shrubbery creation", "robotomy request", "presidential pardon", "meh"};
