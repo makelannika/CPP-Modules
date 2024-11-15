@@ -6,15 +6,15 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 14:39:47 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/14 13:20:44 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/15 12:37:56 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm::AForm("robotomy", "Target", 72, 45) {}
+RobotomyRequestForm::RobotomyRequestForm() : AForm::AForm("robotomy request", "Target", 72, 45) {}
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm::AForm("robotomy", target, 72, 45) {}
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm::AForm("robotomy request", target, 72, 45) {}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& obj) : AForm::AForm(obj) {}
 

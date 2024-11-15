@@ -6,15 +6,15 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:16:22 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/14 13:18:33 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/15 12:37:08 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : AForm::AForm("presidential", "Target", 25, 5) {}
+PresidentialPardonForm::PresidentialPardonForm() : AForm::AForm("presidential pardon", "Target", 25, 5) {}
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm::AForm("presidential", target, 25, 5) {}
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm::AForm("presidential pardon", target, 25, 5) {}
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& obj) : AForm::AForm(obj) {}
 
