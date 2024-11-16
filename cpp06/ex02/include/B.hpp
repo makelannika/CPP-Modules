@@ -6,16 +6,18 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 19:00:59 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/15 18:46:30 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/16 14:38:45 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef B_HPP
 # define B_HPP
 
+#include "Base.hpp"
+
 class B : public Base {
 	public:
-		~B();
+		~B() override;
 };
 
 #endif
