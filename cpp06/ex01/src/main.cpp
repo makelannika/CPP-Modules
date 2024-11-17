@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 22:28:39 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/13 23:41:51 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/17 14:14:07 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,16 @@
 #include <iostream>
 
 int main() {
-    Data*       ptr = new Data{1, 2.3};
-    uintptr_t   raw;
+    Data*       ptr = new Data{"Data", 2};
+    Data*       deserialized;
+    uintptr_t   serialized;
 
-    std::cout << "address of data: " << ptr << std::endl;
-    raw = Serializer::serialize(ptr);
-    std::cout << "address of data: " << Serializer::deserialize(raw) << std::endl;
+    std::cout << "original pointer:\t" << ptr << std::endl;
+    serialized = Serializer::serialize(ptr);
+    deserialized = Serializer::deserialize(serialized);
+    std::cout << "deserialized pointer:\t" << deserialized << std::endl;
+    std::cout << "name: " << deserialized->name << std::endl;
+    std::cout << "value: " << deserialized->value << std::endl;
     
     delete ptr;
 }
