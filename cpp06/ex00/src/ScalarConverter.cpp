@@ -6,31 +6,51 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:58:40 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/19 14:33:45 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/19 21:42:26 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
 template<typename T>
+void displayPseudoLiterals(T value) {
+	std::string	sign;
+	
+	std::cout << "char: impossible" << std::endl << "int: impossible" << std::endl;
+	if (std::isnan(value))
+		std::cout << "float: nanf" << std::endl << "double: nan" << std::endl;
+	else {
+		sign = value < 0 ? "" : "+";
+		std::cout << "float: " << sign << static_cast<float>(value)  << "f" << std::endl;
+		std::cout << "double: " << sign <<  static_cast<double>(value) << std::endl;
+	}
+}
+
+template<typename T>
 void display(T value) {
-	if (std::isnan(value) || std::isinf(value) || value < 0 || value > 127) {
+	if (std::isnan(value) || std::isinf(value)) {
+		displayPseudoLiterals(value);
+		return ;
+	}
+	if (value < 0 || value > 127) {
         std::cout << "char: impossible" << std::endl;
-	} else if (value < 32 || value == 127) {
+	} else if (value < 32 || value > 126) {
         std::cout << "char: non displayable" << std::endl;
 	} else {
         std::cout << "char: '" << static_cast<char>(value) << "'" << std::endl;
 	}
-    if (std::isnan(value) || std::isinf(value) || value < static_cast<double>(INT_MIN) || value > static_cast<double>(INT_MAX)) {
+	if (value < static_cast<double>(INT_MIN) || value > static_cast<double>(INT_MAX)) {
         std::cout << "int: impossible" << std::endl;
 	} else {
         std::cout << "int: " << static_cast<int>(value) << std::endl;
 	}
-	if (!std::isnan(value) && !std::isinf(value) && (value < std::numeric_limits<float>::lowest() || value > std::numeric_limits<float>::max()))
+	std::cout << std::fixed << std::setprecision(1);
+	if (value < static_cast<double>(-FLT_MAX) || value > static_cast<double>(FLT_MAX))
 		std::cout << "float: impossible" << std::endl;
-	else
-    	std::cout << "float: " << static_cast<float>(value) << "f" << std::endl;
-    std::cout << "double: " << static_cast<double>(value) << std::endl;
+	else {
+		std::cout << "float: " << static_cast<float>(value) << "f" << std::endl;
+	}
+	std::cout << "double: " << static_cast<double>(value) << std::endl;
 }
 
 bool hasDecimalPoint(std::string input) {
@@ -89,22 +109,18 @@ void ScalarConverter::convert(std::string str) {
 
     switch (getType(str)) {
         case CHAR:
-            std::cout << "input is a char" << std::endl;
             charValue = str[0];
             display(charValue);
             break ;
         case INT:
-            std::cout << "input is an int" << std::endl;
             intValue = stoi(str);
             display(intValue);
             break ;
         case FLOAT:
-            std::cout << "input is a float" << std::endl;
             floatValue = stof(str);
             display(floatValue);
             break ;
         case DOUBLE:
-            std::cout << "input is a double" << std::endl;
             doubleValue = stod(str);
             display(doubleValue);
             break ;

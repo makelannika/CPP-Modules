@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:54:40 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/14 18:47:53 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/19 18:42:12 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@
 #include <iostream>
 #include <iomanip>
 #include <climits>
+#include <float.h>
 #include <string>
 #include <limits>
 #include <cmath>
 
-enum type { CHAR, INT, DOUBLE, FLOAT, INVALID };
+enum Type { CHAR, INT, DOUBLE, FLOAT, INVALID };
 
 class ScalarConverter {
     public:
