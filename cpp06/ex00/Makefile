@@ -6,11 +6,11 @@
 #    By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/09 22:49:57 by amakela           #+#    #+#              #
-#    Updated: 2024/11/13 15:19:17 by amakela          ###   ########.fr        #
+#    Updated: 2024/11/19 14:33:26 by amakela          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	scalarConverter
+NAME		=	convert
 
 SRCS		=	src/main.cpp	src/ScalarConverter.cpp
  
