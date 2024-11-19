@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:58:40 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/14 18:34:47 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/19 14:33:45 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void display(T value) {
 	if (!std::isnan(value) && !std::isinf(value) && (value < std::numeric_limits<float>::lowest() || value > std::numeric_limits<float>::max()))
 		std::cout << "float: impossible" << std::endl;
 	else
-    	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(value) << "f" << std::endl;
-    std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(value) << std::endl;
+    	std::cout << "float: " << static_cast<float>(value) << "f" << std::endl;
+    std::cout << "double: " << static_cast<double>(value) << std::endl;
 }
 
 bool hasDecimalPoint(std::string input) {
