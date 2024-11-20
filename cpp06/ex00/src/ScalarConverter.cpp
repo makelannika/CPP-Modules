@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:58:40 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/19 21:42:26 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/20 15:36:28 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,23 +44,12 @@ void display(T value) {
 	} else {
         std::cout << "int: " << static_cast<int>(value) << std::endl;
 	}
-	std::cout << std::fixed << std::setprecision(1);
 	if (value < static_cast<double>(-FLT_MAX) || value > static_cast<double>(FLT_MAX))
 		std::cout << "float: impossible" << std::endl;
 	else {
 		std::cout << "float: " << static_cast<float>(value) << "f" << std::endl;
 	}
 	std::cout << "double: " << static_cast<double>(value) << std::endl;
-}
-
-bool hasDecimalPoint(std::string input) {
-	int i = 0;
-
-	while (input[i]) {
-		if (input[i++] == '.')
-			return true;
-	}
-	return false;
 }
 
 bool lengthIsEqual(std::string input, size_t lenParsed) {
@@ -90,38 +79,38 @@ int getType(std::string input) {
         } catch (std::exception& e) {}
     try {
         std::stof(input, &idx);
-        if (lengthIsEqual(input, idx + 1) && hasDecimalPoint(input) && input[idx] == 'f')
+        if (lengthIsEqual(input, idx + 1) && input[idx] == 'f')
             return FLOAT;
         } catch (std::exception& e) {}
     try {
         std::stod(input, &idx);
-        if (lengthIsEqual(input, idx) && hasDecimalPoint(input))
+        if (lengthIsEqual(input, idx))
             return DOUBLE;
         } catch (std::exception& e) {}
     return INVALID;
 }
 
-void ScalarConverter::convert(std::string str) {
+void ScalarConverter::convert(std::string input) {
     char    charValue;
     int     intValue;
     float   floatValue;
     double  doubleValue;
 
-    switch (getType(str)) {
+    switch (getType(input)) {
         case CHAR:
-            charValue = str[0];
+            charValue = input[0];
             display(charValue);
             break ;
         case INT:
-            intValue = stoi(str);
+            intValue = stoi(input);
             display(intValue);
             break ;
         case FLOAT:
-            floatValue = stof(str);
+            floatValue = stof(input);
             display(floatValue);
             break ;
         case DOUBLE:
-            doubleValue = stod(str);
+            doubleValue = stod(input);
             display(doubleValue);
             break ;
         case INVALID:
