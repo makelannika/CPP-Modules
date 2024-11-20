@@ -6,14 +6,13 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 22:22:22 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/13 23:39:16 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/20 18:43:58 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SERIALIZER_HPP
 # define SERIALIZER_HPP
 
-#include <cstdint>
 #include "Data.hpp"
 
 class Serializer {
