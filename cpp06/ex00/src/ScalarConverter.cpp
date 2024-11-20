@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:58:40 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/20 15:36:28 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/20 18:18:21 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,23 +32,23 @@ void display(T value) {
 		displayPseudoLiterals(value);
 		return ;
 	}
-	if (value < 0 || value > 127) {
+	
+	if (value < 0 || value > 127)
         std::cout << "char: impossible" << std::endl;
-	} else if (value < 32 || value > 126) {
+	else if (value < 32 || value > 126)
         std::cout << "char: non displayable" << std::endl;
-	} else {
+	else {
         std::cout << "char: '" << static_cast<char>(value) << "'" << std::endl;
 	}
-	if (value < static_cast<double>(INT_MIN) || value > static_cast<double>(INT_MAX)) {
+	if (value < static_cast<double>(INT_MIN) || value > static_cast<double>(INT_MAX))
         std::cout << "int: impossible" << std::endl;
-	} else {
+	else {
         std::cout << "int: " << static_cast<int>(value) << std::endl;
 	}
 	if (value < static_cast<double>(-FLT_MAX) || value > static_cast<double>(FLT_MAX))
 		std::cout << "float: impossible" << std::endl;
-	else {
+	else
 		std::cout << "float: " << static_cast<float>(value) << "f" << std::endl;
-	}
 	std::cout << "double: " << static_cast<double>(value) << std::endl;
 }
 
