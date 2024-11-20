@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:34:10 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/16 21:06:58 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/20 18:54:53 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ Base* generate() {
 int main() {
 	std::srand(time(0));
 
-	for (int i = 0; i < 6; i++) {
+	for (int i = 0; i < 3; i++) {
 		Base* ptr = generate();
 		identify(ptr);
 		identify(*ptr);
