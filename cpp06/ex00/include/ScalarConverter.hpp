@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:54:40 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/19 18:42:12 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/20 15:39:43 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define SCALARCONVERTER_HPP
 
 #include <iostream>
-#include <iomanip>
 #include <climits>
 #include <float.h>
 #include <string>
