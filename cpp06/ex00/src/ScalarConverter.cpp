@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:58:40 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/20 18:18:21 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/21 20:07:32 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,12 @@
 
 template<typename T>
 void displayPseudoLiterals(T value) {
-	std::string	sign;
-	
 	std::cout << "char: impossible" << std::endl << "int: impossible" << std::endl;
 	if (std::isnan(value))
 		std::cout << "float: nanf" << std::endl << "double: nan" << std::endl;
 	else {
-		sign = value < 0 ? "" : "+";
-		std::cout << "float: " << sign << static_cast<float>(value)  << "f" << std::endl;
-		std::cout << "double: " << sign <<  static_cast<double>(value) << std::endl;
+		std::cout << "float: " << (value < 0 ? "" : "+") << static_cast<float>(value)  << "f" << std::endl;
+		std::cout << "double: " << (value < 0 ? "" : "+") <<  static_cast<double>(value) << std::endl;
 	}
 }
 
