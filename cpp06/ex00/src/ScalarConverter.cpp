@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:58:40 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/21 20:07:32 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/21 20:12:15 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void display(T value) {
 		displayPseudoLiterals(value);
 		return ;
 	}
-	
 	if (value < 0 || value > 127)
         std::cout << "char: impossible" << std::endl;
 	else if (value < 32 || value > 126)
