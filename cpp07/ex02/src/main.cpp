@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 13:30:30 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/22 19:38:31 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/22 19:44:03 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main() {
 		Array<std::string> animals(4);
 		std::string a[4] = {"cat", "dog", "mouse", "horse"};
 		 
-		for (unsigned int i = 0; i < 8; i++) {
+		for (unsigned int i = 0; i < pos.size(); i++) {
 			pos[i] = i;
 			neg[i] = !i ? -1 : -i;
 			if (i < 4)
@@ -46,6 +46,8 @@ int main() {
 		std::cout << std::endl << "animals array:" << std::endl;
 		for (unsigned int i = 0; i < animals.size(); i++)
 			std::cout << animals[i] << std::endl;
+		std::cout << std::endl;
+		std::cout << animals[5];
 	} catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}
