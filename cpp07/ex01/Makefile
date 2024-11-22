@@ -6,11 +6,11 @@
 #    By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/22 11:32:06 by amakela           #+#    #+#              #
-#    Updated: 2024/11/22 11:32:15 by amakela          ###   ########.fr        #
+#    Updated: 2024/11/22 11:47:07 by amakela          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	
+NAME		=	iter
 
 SRCS		=	src/main.cpp
  
