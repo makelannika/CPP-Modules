@@ -5,14 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/11/21 17:18:13 by amakela           #+#    #+#              #
-#    Updated: 2024/11/21 17:18:43 by amakela          ###   ########.fr        #
+#    Created: 2024/11/22 11:01:38 by amakela           #+#    #+#              #
+#    Updated: 2024/11/22 11:05:50 by amakela          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	
+NAME		=	templates
 
-SRCS		=	
+SRCS		=	src/main.cpp
  
 OBJS		=	$(SRCS:.cpp=.o)
 
