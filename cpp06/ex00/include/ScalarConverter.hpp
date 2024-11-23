@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:54:40 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/20 15:39:43 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/23 11:33:28 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 #include <float.h>
 #include <string>
 #include <limits>
-#include <cmath>
 
 enum Type { CHAR, INT, DOUBLE, FLOAT, INVALID };
 
