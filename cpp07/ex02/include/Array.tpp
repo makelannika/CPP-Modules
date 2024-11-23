@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:10:19 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/22 19:03:05 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/23 19:04:57 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,24 @@
 #include <stdexcept>
 
 template<typename T>
-Array<T>::Array() : elements(0), array(0) {};
+Array<T>::Array() : len(0), array(new T[0]) {};
 
 template<typename T>
-Array<T>::Array(unsigned int n) : elements(n), array(new T[n]) {
-	for (unsigned int i = 0; i < elements; i++)
-		array[i] = T();
-}
+Array<T>::Array(unsigned int n) : len(n), array(new T[n]()) {}
 
 template<typename T>
-Array<T>::Array(const Array& obj) : elements(obj.elements), array(new T[elements]) {
-	for (unsigned int i = 0; i < elements; i++)
-			array[i] = obj.array[i];
+Array<T>::Array(const Array& obj) : len(obj.len), array(new T[len]) {
+	for (unsigned int i = 0; i < len; i++)
+		array[i] = obj.array[i];
 }
 
 template<typename T>
 const Array<T>& Array<T>::operator=(const Array<T>& obj) {
 	if (this != &obj) {
-		elements = obj.elements;
+		len = obj.len;
 		delete[] array;
-		array = new T[elements];
-		for (unsigned int i = 0; i < elements; i++)
+		array = new T[len];
+		for (unsigned int i = 0; i < len; i++)
 			array[i] = obj.array[i];
 	}
 	return *this;
@@ -42,14 +39,14 @@ const Array<T>& Array<T>::operator=(const Array<T>& obj) {
 
 template<typename T>
 T& Array<T>::operator[](unsigned int idx) {
-	if (idx >= elements)
+	if (idx >= len)
 		throw std::out_of_range("index is out of range");
 	return array[idx];
 };
 
 template<typename T>
 unsigned int Array<T>::size() const {
-	return elements;
+	return len;
 };
 
 template<typename T>

@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 13:30:30 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/22 19:44:03 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/23 19:06:20 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main() {
 		 
 		for (unsigned int i = 0; i < pos.size(); i++) {
 			pos[i] = i;
-			neg[i] = !i ? -1 : -i;
+			neg[i] = i - pos.size();
 			if (i < 4)
 				animals[i] = a[i];
 		}

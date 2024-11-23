@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 13:36:37 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/22 19:02:58 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/23 19:00:50 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 template<typename T>
 class Array {
 	private:
-		unsigned int	elements;
+		unsigned int	len;
 		T*				array;
 		
 	public:
