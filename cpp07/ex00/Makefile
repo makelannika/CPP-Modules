@@ -6,7 +6,7 @@
 #    By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/22 11:01:38 by amakela           #+#    #+#              #
-#    Updated: 2024/11/22 11:05:50 by amakela          ###   ########.fr        #
+#    Updated: 2024/11/26 14:41:07 by amakela          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OBJS		=	$(SRCS:.cpp=.o)
 
 HEADERS		=	-I include
 
-CXX			=	c++ -std=c++11
+CXX			=	c++ -std=c++98
 
 FLAGS		=	-Wall -Wextra -Werror
 
