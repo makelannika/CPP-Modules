@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:44:56 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/26 13:18:54 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/26 14:13:19 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,17 @@ int main() {
 	
 	try {
 		std::cout << "string array:" << std::endl;
-		iter(sArray, sizeof(sArray) / sizeof(sArray[0]), print<std::string>);
+		iter(sArray, sizeof(sArray) / sizeof(sArray[0]), display<std::string>);
 		
 		std::cout << std::endl << "int array:" << std::endl;
-		iter(iArray, sizeof(iArray) / sizeof(iArray[0]), print<int>);
+		iter(iArray, sizeof(iArray) / sizeof(iArray[0]), display<int>);
 
 		std::cout << std::endl << "float array:" << std::endl;
-		iter(fArray, sizeof(fArray) / sizeof(fArray[0]), print<float>);
+		iter(fArray, sizeof(fArray) / sizeof(fArray[0]), display<float>);
 
-		iter<int>(nullptr, 5, print<int>);
+		iter<int>(nullptr, 5, display<int>);
 	} catch (std::exception& e) {
 		std::cout << std::endl << e.what() << std::endl;
 	}
 }
+

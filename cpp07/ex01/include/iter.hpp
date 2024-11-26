@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:38:42 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/26 13:34:21 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/26 14:08:43 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <stdexcept>
 
 template<typename T>
-void print(const T& element) { std::cout << element << std::endl; }
+void display(const T& element) { std::cout << element << std::endl; }
 
 template<typename T, typename F>
 void iter(T* array, size_t len, F func) {
