@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 13:36:37 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/23 19:00:50 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/26 15:22:49 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Array {
 
 		Array(unsigned int n);
 		unsigned int size() const;
-		T& operator[](unsigned int idx);
+		T& operator[](int idx);
 };
 
 #include "Array.tpp"

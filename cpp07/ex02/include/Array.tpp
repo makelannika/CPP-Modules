@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:10:19 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/23 19:04:57 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/26 15:23:34 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ template<typename T>
 Array<T>::Array(unsigned int n) : len(n), array(new T[n]()) {}
 
 template<typename T>
-Array<T>::Array(const Array& obj) : len(obj.len), array(new T[len]) {
+Array<T>::Array(const Array<T>& obj) : len(obj.len), array(new T[len]) {
 	for (unsigned int i = 0; i < len; i++)
 		array[i] = obj.array[i];
 }
@@ -38,8 +38,8 @@ const Array<T>& Array<T>::operator=(const Array<T>& obj) {
 };
 
 template<typename T>
-T& Array<T>::operator[](unsigned int idx) {
-	if (idx >= len)
+T& Array<T>::operator[](int idx) {
+	if (idx < 0 || idx >= static_cast<int>(len))
 		throw std::out_of_range("index is out of range");
 	return array[idx];
 };

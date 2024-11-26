@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 13:30:30 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/23 19:06:20 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/26 15:29:47 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ int main() {
 		std::cout << std::endl;
 		std::cout << animals[5];
 	} catch (std::exception& e) {
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 }
