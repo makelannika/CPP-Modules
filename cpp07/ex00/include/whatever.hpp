@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:11:12 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/23 13:03:49 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/26 12:55:31 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void swap(T& first, T& second) {
 }
 
 template<typename T>
-T min(T first, T second) { return first < second ? first : second; }
+T min(const T& first, const T& second) { return first < second ? first : second; }
 
 template<typename T>
-T max(T first, T second) { return first > second ? first : second; }
+T max(const T& first, const T& second) { return first > second ? first : second; }
 
 #endif
