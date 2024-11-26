@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:10:19 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/26 15:23:34 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/26 17:53:40 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ const Array<T>& Array<T>::operator=(const Array<T>& obj) {
 };
 
 template<typename T>
-T& Array<T>::operator[](int idx) {
-	if (idx < 0 || idx >= static_cast<int>(len))
+T& Array<T>::operator[](const int& idx) {
+	if (idx < 0 || idx >= static_cast<long long>(len))
 		throw std::out_of_range("index is out of range");
 	return array[idx];
 };
