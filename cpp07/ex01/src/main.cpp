@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:44:56 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/26 14:50:20 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/26 15:26:35 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int main() {
 
 		iter<int>(nullptr, 5, display<int>);
 	} catch (std::exception& e) {
-		std::cout << std::endl << e.what() << std::endl;
+		std::cerr << std::endl << e.what() << std::endl;
 	}
 }
 
