@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:02:36 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/26 14:45:36 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/26 14:46:50 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 #include <string>
 
 int main() {
-	int iFirst(1), iSecond(2);
-	float fFirst(1.5), fSecond(3.2);
+	int			iFirst(1), iSecond(2);
+	float		fFirst(1.5), fSecond(3.2);
 	std::string sFirst("hi"), sSecond("hello");
 
 	std::cout << "swap ints" << std::endl;
