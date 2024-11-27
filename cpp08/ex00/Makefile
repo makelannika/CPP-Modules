@@ -6,19 +6,19 @@
 #    By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/27 16:56:48 by amakela           #+#    #+#              #
-#    Updated: 2024/11/27 16:56:55 by amakela          ###   ########.fr        #
+#    Updated: 2024/11/27 18:53:47 by amakela          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	
+NAME		=	ex00
 
-SRCS		=	
+SRCS		=	src/main.cpp
  
 OBJS		=	$(SRCS:.cpp=.o)
 
 HEADERS		=	-I include
 
-CXX			=	c++ -std=c++98
+CXX			=	c++ -std=c++20
 
 FLAGS		=	-Wall -Wextra -Werror
 
