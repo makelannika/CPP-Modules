@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:59:53 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/28 20:18:09 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/28 21:12:43 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 # define SPAN_HPP
 
 #include <vector>
+#include <set>
 
 class Span {
 	private:
-		std::vector<int> ints;
+		std::multiset<int>	numbers;
+		unsigned int		max;
 
 	public:
 		Span() = delete;
@@ -27,9 +29,9 @@ class Span {
 
 		Span(unsigned n);
 		
-		void	addNumber(int num);
-		int		shortestSpan();
-		int		longestSpan();
+		void			addNumber(int num);
+		unsigned int	shortestSpan();
+		unsigned int	longestSpan();
 };
 
 

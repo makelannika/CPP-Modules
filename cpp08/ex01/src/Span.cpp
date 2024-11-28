@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 14:02:53 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/28 20:18:54 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/28 21:13:25 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,31 @@
 #include <stdexcept>
 #include <iostream>
 
-Span::Span(unsigned int n) {
-	ints.reserve(n);
-}
+Span::Span(unsigned int n) : max(n) {}
 
-Span::Span(const Span& obj) : ints(obj.ints) {}
+Span::Span(const Span& obj) : numbers(obj.numbers), max(obj.max) {}
 
 const Span& Span::operator=(const Span& obj) {
 	if (this != &obj)
-		ints = obj.ints;
+		numbers = obj.numbers;
 	return *this;
 }
 
 void Span::addNumber(int num) {
-	if (ints.size() == ints.capacity())
+	if (numbers.size() == max)
 		throw std::length_error("container is full");
-	ints.emplace_back(num);
+	numbers.insert(num);
 	std::cout << "added " << num << "\n";
 }
 
-int Span::shortestSpan() {
-	if (ints.size() < 2)
+unsigned int Span::shortestSpan() {
+	if (numbers.size() < 2)
 		throw std::length_error("cannot find shortest span");
 	return 0;
 }
 
-int Span::longestSpan() {
-	if (ints.size() < 2)
+unsigned int Span::longestSpan() {
+	if (numbers.size() < 2)
 		throw std::length_error("cannot find longest span");
 	return 0;
 }
