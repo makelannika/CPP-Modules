@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 14:02:53 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/28 21:13:25 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/28 21:22:55 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ const Span& Span::operator=(const Span& obj) {
 void Span::addNumber(int num) {
 	if (numbers.size() == max)
 		throw std::length_error("container is full");
-	numbers.insert(num);
-	std::cout << "added " << num << "\n";
+	numbers.emplace(num);
 }
 
 unsigned int Span::shortestSpan() {
@@ -40,7 +39,9 @@ unsigned int Span::shortestSpan() {
 unsigned int Span::longestSpan() {
 	if (numbers.size() < 2)
 		throw std::length_error("cannot find longest span");
-	return 0;
+	std::multiset<int>::iterator first = numbers.begin();
+	std::multiset<int>::iterator last = numbers.end();
+	return *last - *first;
 }
 
 Span::~Span() {}
