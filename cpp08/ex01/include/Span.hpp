@@ -6,14 +6,13 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:59:53 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/28 21:12:43 by amakela          ###   ########.fr       */
+/*   Updated: 2024/11/28 21:27:00 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SPAN_HPP
 # define SPAN_HPP
 
-#include <vector>
 #include <set>
 
 class Span {
