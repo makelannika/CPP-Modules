@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Span.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/28 14:02:53 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/28 21:22:55 by amakela          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Span.hpp"
 #include <stdexcept>
 #include <iostream>
@@ -33,6 +21,7 @@ void Span::addNumber(int num) {
 unsigned int Span::shortestSpan() {
 	if (numbers.size() < 2)
 		throw std::length_error("cannot find shortest span");
+	
 	return 0;
 }
 
