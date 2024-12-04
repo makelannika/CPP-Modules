@@ -11,11 +11,4 @@ int main() {
 		std::cerr << e.what() << "\n";
 	}
 	std::cout << numbers.longestSpan() << "\n";
-
-	// Span span2(span);
-	// try {
-	// 	span2.addNumber(4);	
-	// } catch (std::exception& e) {
-	// 	std::cerr << e.what() << "\n";
-	// }
 }
