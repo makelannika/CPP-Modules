@@ -6,7 +6,7 @@ OBJS		=	$(SRCS:.cpp=.o)
 
 HEADERS		=	-I include
 
-CXX			=	c++ -std=c++20
+CXX			=	c++ -std=c++17
 
 FLAGS		=	-Wall -Wextra -Werror
 
