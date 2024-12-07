@@ -30,9 +30,7 @@ unsigned int Span::shortestSpan() {
 unsigned int Span::longestSpan() {
 	if (numbers.size() < 2)
 		throw std::length_error("cannot find longest span");
-	std::multiset<int>::iterator first = numbers.begin();
-	std::multiset<int>::iterator last = std::prev(numbers.end());
-	return *last - *first;
+	return *std::prev(numbers.end()) - *numbers.begin();
 }
 
 Span::~Span() {}
