@@ -7,7 +7,8 @@ int main() {
 	try {
 		for (int i = 0; i < 183; i++)
 			numbers.addNumber(i);
-		std::cout << numbers.longestSpan() << "\n";
+		std::cout << "longest span: " << numbers.longestSpan() << "\n";
+		std::cout << "shortest span: " << numbers.shortestSpan() << "\n";
 	} catch (std::exception& e) {
 		std::cerr << e.what() << "\n";
 	}
