@@ -1,6 +1,6 @@
 #include "Span.hpp"
-#include <stdexcept>
-#include <iostream>
+#include <numeric>
+#include <vector>
 
 Span::Span(unsigned int n) : max(n) {}
 
@@ -21,16 +21,15 @@ void Span::addNumber(int num) {
 unsigned int Span::shortestSpan() {
 	if (numbers.size() < 2)
 		throw std::length_error("cannot find shortest span");
-	
-	return 0;
+	std::vector<int> diffs(numbers.size());
+	std::adjacent_difference(numbers.begin(), numbers.end(), diffs.begin());
+	return *std::min_element(std::next(diffs.begin()), diffs.end());
 }
 
 unsigned int Span::longestSpan() {
 	if (numbers.size() < 2)
 		throw std::length_error("cannot find longest span");
-	std::multiset<int>::iterator first = numbers.begin();
-	std::multiset<int>::iterator last = numbers.end();
-	return *last - *first;
+	return *std::prev(numbers.end()) - *numbers.begin();
 }
 
 Span::~Span() {}
