@@ -1,4 +1,5 @@
 #include "Span.hpp"
+#include <algorithm>
 #include <numeric>
 #include <vector>
 
