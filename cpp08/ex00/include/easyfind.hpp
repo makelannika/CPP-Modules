@@ -2,6 +2,7 @@
 # define EASYFIND_HPP
 
 #include <iostream>
+#include <algorithm>
 #include <ranges>
 
 template<typename T>
