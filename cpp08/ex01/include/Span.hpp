@@ -14,7 +14,7 @@ class Span {
 		Span() = delete;
 		~Span();
 		Span(const Span& obj);
-		const Span& operator=(const Span& obj);
+		Span& operator=(const Span& obj);
 
 		Span(unsigned int n);
 		

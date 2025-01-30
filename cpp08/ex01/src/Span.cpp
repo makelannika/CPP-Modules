@@ -1,4 +1,5 @@
 #include "Span.hpp"
+
 #include <algorithm>
 #include <numeric>
 #include <vector>
@@ -7,7 +8,7 @@ Span::Span(unsigned int n) : max(n) {}
 
 Span::Span(const Span& obj) : numbers(obj.numbers), max(obj.max) {}
 
-const Span& Span::operator=(const Span& obj) {
+Span& Span::operator=(const Span& obj) {
 	if (this != &obj)
 		numbers = obj.numbers;
 	return *this;
