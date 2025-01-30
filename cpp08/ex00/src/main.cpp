@@ -5,13 +5,12 @@
 #include <list>
 
 int main() {
-	std::deque<int> dq = {9, 14, -3, 8};
-	std::list<int> lst = {-2, 0, 11, -12};
-	std::array<int, 3> arr = {15, 100, 3};
+	std::deque<int> dq = {0, 14, -3, 8};
+	std::list<int> lst = {-2, 1, 11, -12};
+	std::array<int, 3> arr = {15, 100, 2};
 	std::vector<int> vctr;
 
-	for (int i: dq) {
-		i++;
+	for (int i = 0; i < 3; i++) {
 		auto dqit = easyfind(dq, i);
 			std::cout << "value " << (dqit != dq.end() ?
 			std::to_string(*dqit) + " found in deque\n" : std::to_string(i) + " not found in deque\n");
