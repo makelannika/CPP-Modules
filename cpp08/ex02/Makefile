@@ -1,12 +1,12 @@
-NAME		=	
+NAME		=	ex02
 
-SRCS		=	
+SRCS		=	src/main.cpp
  
 OBJS		=	$(SRCS:.cpp=.o)
 
 HEADERS		=	-I include
 
-CXX			=	c++ -std=c++98
+CXX			=	c++ -std=c++11
 
 FLAGS		=	-Wall -Wextra -Werror
 
