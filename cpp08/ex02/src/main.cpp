@@ -1,7 +1,6 @@
 #include "MutantStack.hpp"
 
 #include <iostream>
-#include <vector>
 #include <list>
 
 void    printStack(MutantStack<int>& stack)
