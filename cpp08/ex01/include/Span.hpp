@@ -13,8 +13,8 @@ class Span {
 	public:
 		Span() = delete;
 		~Span();
-		Span(const Span& obj);
-		Span& operator=(const Span& obj);
+		Span(const Span& other);
+		Span& operator=(const Span& other);
 
 		Span(unsigned int n);
 		

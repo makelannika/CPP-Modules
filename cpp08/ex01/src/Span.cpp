@@ -6,11 +6,11 @@
 
 Span::Span(unsigned int n) : max(n) {}
 
-Span::Span(const Span& obj) : numbers(obj.numbers), max(obj.max) {}
+Span::Span(const Span& other) : numbers(other.numbers), max(other.max) {}
 
-Span& Span::operator=(const Span& obj) {
-	if (this != &obj)
-		numbers = obj.numbers;
+Span& Span::operator=(const Span& other) {
+	if (this != &other)
+		numbers = other.numbers;
 	return *this;
 }
 
