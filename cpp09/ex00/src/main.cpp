@@ -8,7 +8,3 @@ int main(int argc, char** argv)
         std::cout << "Program takes a file as argument\n";
     }
 }
-
-// ex00: map [date, rate]
-// ex01: stack
-// ex02: 
