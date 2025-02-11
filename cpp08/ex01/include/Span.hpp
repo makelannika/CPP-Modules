@@ -11,12 +11,12 @@ class Span {
 		unsigned int		max;
 
 	public:
-		Span() = delete;
+		Span(unsigned int n);
 		~Span();
 		Span(const Span& other);
 		Span& operator=(const Span& other);
 
-		Span(unsigned int n);
+		Span() = delete;
 		
 		void			addNumber(int num);
 		unsigned int	shortestSpan();

@@ -4,24 +4,51 @@
 #include <vector>
 
 int main() {
-	Span numbers(200);
+	Span span(50000);
 
+	std::cout << "------ TEST EMPTY SPAN ------\n";
 	try {
-		for (int i = 0; i < 193; i++)
-			numbers.addNumber(i);
-		std::cout << "longest span: " << numbers.longestSpan() << "\n";
-		std::cout << "shortest span: " << numbers.shortestSpan() << "\n";
+		std::cout << "longest span: " << span.longestSpan() << "\n";
 	} catch (std::exception& e) {
 		std::cerr << e.what() << "\n";
 	}
-
-	std::vector<int> range = {5, 18, 21, 200};
 	try {
-		numbers.addRange(range.begin(), range.end());
-		std::cout << "\nlongest span: " << numbers.longestSpan() << "\n";
-		std::cout << "shortest span: " << numbers.shortestSpan() << "\n";
-		numbers.addRange(range.begin(), range.end());
+		std::cout << "shortest span: " << span.shortestSpan() << "\n";
 	} catch (std::exception& e) {
 		std::cerr << e.what() << "\n";
 	}
+	std::cout << "\n\n";
+
+	std::cout << "------ TEST ADD NUMBER ------\n";
+	try {
+		for (int i = 0; i < 49972; i++)
+			span.addNumber(i);
+		std::cout << "longest span: " << span.longestSpan() << "\n";
+		std::cout << "shortest span: " << span.shortestSpan() << "\n";
+	} catch (std::exception& e) {
+		std::cerr << e.what() << "\n";
+	}
+	std::cout << "\n\n";
+
+	std::cout << "------ TEST ADD RANGE -------\n";
+	std::vector<int> range = {5, 18, 21, 200, 234, 3235, 5, 222, -1, 0, 124,
+								 123, 32, -77, 2, 111, -8, -345, 10000, 90};
+	try {
+		span.addRange(range.begin(), range.end());
+		std::cout << "longest span: " << span.longestSpan() << "\n";
+		std::cout << "shortest span: " << span.shortestSpan() << "\n";
+		span.addRange(range.begin(), range.end());
+	} catch (std::exception& e) {
+		std::cerr << e.what() << "\n";
+	}
+	std::cout << "\n\n";
+
+	std::cout << "------ TEST ADD NUMBER ------\n";
+	try {
+		for (int i = 0; i < 30; i++)
+			span.addNumber(i);
+	} catch (std::exception& e) {
+		std::cerr << e.what() << "\n";
+	}
+	std::cout << "\n";
 }
