@@ -3,85 +3,97 @@
 #include <iostream>
 #include <list>
 
-void    printStack(MutantStack<int>& stack)
+template<typename T>
+void    printStack(T& container)
 {
-    for (auto it = stack.begin(); it != stack.end(); ++it) {
+	std::cout << "using iterators: ";
+    for (auto it = container.begin(); it != container.end(); ++it) {
         std::cout << *it;
-        std::cout << (it == std::prev(stack.end()) ? "\n" : ",");
+        std::cout << (it == std::prev(container.end()) ? "\n" : ",");
     }
+	std::cout << "using reverse iterators: ";
+    for (auto it = container.rbegin(); it != container.rend(); ++it) {
+        std::cout << *it;
+        std::cout << (it == std::prev(container.rend()) ? "\n" : ",");
+    }
+	std::cout << "\n";
 }
 
-void    printStack(const MutantStack<int>& stack)
+template<typename T>
+void    printStack(const T& container)
 {
-    for (auto it = stack.begin(); it != stack.end(); ++it) {
+	std::cout << "using const iterators: ";
+    for (auto it = container.cbegin(); it != container.cend(); ++it) {
         std::cout << *it;
-        std::cout << (it == std::prev(stack.end()) ? "\n" : ",");
+        std::cout << (it == std::prev(container.cend()) ? "\n" : ",");
     }
-}
-
-void    printList(std::list<int>& list)
-{
-    for (auto it = list.begin(); it != list.end(); ++it) {
+	std::cout << "using const reverse iterators: ";
+    for (auto it = container.crbegin(); it != container.crend(); ++it) {
         std::cout << *it;
-        std::cout << (it == std::prev(list.end()) ? "\n" : ",");
+        std::cout << (it == std::prev(container.crend()) ? "\n" : ",");
     }
+	std::cout << "\n";
 }
 
 int main()
 {
-    std::cout << "====== MUTANT STACK ======\n";
+    std::cout << "=========== MUTANT STACK ===========\n";
     MutantStack<int>    stack;
 
+	std::cout << "Pushing elements to stack... \n";
     for (int i = 0; i < 10; i++)
         stack.push(i);
 
     std::cout << "size: " << stack.size() << "\n";
     std::cout << "top: " << stack.top() << "\n\n";
 
-    std::cout << "stack: ";
-    printStack(stack);
-
     const MutantStack<int>	stack2(stack);
     MutantStack<int>    	stack3;
 
     stack3 = stack2;
 
-    std::cout << "\nconst copy constructed stack: ";
+    std::cout << "PRINTING STACK\n";
+    printStack(stack);
+
+    std::cout << "PRINTING COPY CONSTRUCTED STACK\n";
 	printStack(stack2);
 
-    std::cout << "copy assigned stack: ";
+    std::cout << "PRINTING COPY ASSIGNED STACK\n";
     printStack(stack3);
 
+	std::cout << "Popping all elements in the stack... \n";
     while (!stack.empty())
         stack.pop();
 
-    std::cout << "\nsize: " << stack.size() << "\n";
+    std::cout << "size: " << stack.size() << "\n";
 
-    std::cout << "\n========== LIST ==========\n";
+    std::cout << "\n=============== LIST ===============\n";
 
     std::list<int>  list;
 
+	std::cout << "Pushing elements to list... \n";
     for (int i = 0; i < 10; i++)
         list.push_back(i);
 
     std::cout << "size: " << list.size() << "\n";
     std::cout << "top: " << list.back() << "\n\n";
 
-    std::cout << "list: ";
-    printList(list);
+    std::cout << "PRINTING LIST\n";
+	printStack(list);
 
-    std::list<int>    list2;
-    std::list<int>    list3(list);
+    const std::list<int>	list2(list);
+    std::list<int>    		list3;
 
-    list2 = list3;
+    list3 = list2;
 
-    std::cout << "\ncopy constructed list: ";
-    printList(list2);
-    std::cout << "copy assigned list: ";
-    printList(list3);
+    std::cout << "PRINTING COPY CONSTRUCTED LIST\n";
+    printStack(list2);
+    std::cout << "PRINTING COPY ASSIGNED LIST\n";
+    printStack(list3);
 
+	std::cout << "Popping all elements in the list... \n";
     while (!list.empty())
         list.pop_back();
 
-    std::cout << "\nsize: " << list.size() << "\n";
+    std::cout << "size: " << list.size() << "\n";
 }
