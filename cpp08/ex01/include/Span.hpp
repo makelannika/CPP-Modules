@@ -2,7 +2,6 @@
 # define SPAN_HPP
 
 #include <stdexcept>
-#include <iostream>
 #include <set>
 
 class Span {

@@ -37,6 +37,7 @@ int main() {
 		span.addRange(range.begin(), range.end());
 		std::cout << "longest span: " << span.longestSpan() << "\n";
 		std::cout << "shortest span: " << span.shortestSpan() << "\n";
+		std::cout << "\n";
 		span.addRange(range.begin(), range.end());
 	} catch (std::exception& e) {
 		std::cerr << e.what() << "\n";
