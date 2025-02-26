@@ -7,7 +7,9 @@ class BitcoinExchange {
     private:
         std::map<int, double> rates;
 
-        int convertDate(const std::string& date);
+        int     convertDate(const std::string& dateStr);
+        double  getValue(const std::string& valueStr);
+        double  findRate(int date);
 
     public:
         BitcoinExchange();
@@ -17,8 +19,6 @@ class BitcoinExchange {
         
         void    readRates();
         void    processInput(const std::string& inputFile);
-
-        // void    displayRates(); 
 };
 
 #endif
