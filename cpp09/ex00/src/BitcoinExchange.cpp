@@ -50,7 +50,7 @@ void    BitcoinExchange::processInput(const std::string& inputFile)
 {
     std::ifstream input(inputFile, std::ios::binary);
     if (!input.is_open())
-        throw std::ios_base::failure("could not open file " + inputFile);
+        throw std::ios_base::failure("Error: could not open file.");
 
     for (std::string line; getline(input, line);) {
         try {
