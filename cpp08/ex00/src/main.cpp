@@ -1,5 +1,6 @@
 #include "easyfind.hpp"
 
+#include <iostream>
 #include <vector>
 #include <array>
 #include <deque>
@@ -13,17 +14,13 @@ int main() {
 
 	for (int i = 0; i < 3; i++) {
 		auto dqit = easyfind(dq, i);
-			std::cout << "value " << (dqit != dq.end() ?
-			std::to_string(*dqit) + " found in deque\n" : std::to_string(i) + " not found in deque\n");
+			std::cout << "value " << i << (dqit != dq.end() ? " found in deque\n" : " not found in deque\n");
 		auto lstit = easyfind(lst, i);
-			std::cout << "value " << (lstit != lst.end() ?
-			std::to_string(*lstit) + " found in list\n" : std::to_string(i) + " not found in list\n");
+			std::cout << "value " << i << (lstit != lst.end() ? " found in list\n" : " not found in list\n");
 		auto arrit = easyfind(arr, i);
-			std::cout << "value "  << (arrit != arr.end() ?
-			std::to_string(*arrit) + " found in array\n" : std::to_string(i) + " not found in array\n");
+			std::cout << "value "  << i << (arrit != arr.end() ? " found in array\n" : " not found in array\n");
 		auto vctrit = easyfind(vctr, i);
-			std::cout << "value " << (vctrit != vctr.end() ?
-			std::to_string(*vctrit) + " found in vector\n" : std::to_string(i) + " not found in vector\n");
+			std::cout << "value " << i << (vctrit != vctr.end() ? " found in vector\n" : " not found in vector\n");
 		std::cout << "\n";
 	}
 }

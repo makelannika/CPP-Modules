@@ -9,15 +9,17 @@ Span::Span(unsigned int n) : max(n) {}
 Span::Span(const Span& other) : numbers(other.numbers), max(other.max) {}
 
 Span& Span::operator=(const Span& other) {
-	if (this != &other)
+	if (this != &other) {
+		max = other.max;
 		numbers = other.numbers;
+	}
 	return *this;
 }
 
 void Span::addNumber(int num) {
 	if (numbers.size() == max)
-		throw std::length_error("container is full");
-	numbers.emplace(num);
+		throw std::length_error("not enough capacity to add number");
+	numbers.insert(num);
 }
 
 unsigned int Span::shortestSpan() {

@@ -2,7 +2,6 @@
 # define SPAN_HPP
 
 #include <stdexcept>
-#include <iostream>
 #include <set>
 
 class Span {
@@ -11,12 +10,12 @@ class Span {
 		unsigned int		max;
 
 	public:
-		Span() = delete;
+		Span(unsigned int n);
 		~Span();
 		Span(const Span& other);
 		Span& operator=(const Span& other);
 
-		Span(unsigned int n);
+		Span() = delete;
 		
 		void			addNumber(int num);
 		unsigned int	shortestSpan();
@@ -24,6 +23,8 @@ class Span {
 		
 		template<typename iterator>
 		void	addRange(iterator begin, iterator end) {
+			if (begin > end)
+				throw std::invalid_argument("beginning of range cannot be past end of range");
 			if (static_cast<std::size_t>(std::distance(begin, end)) > max - numbers.size())
 				throw std::length_error("not enough capacity to add range");
 			numbers.insert(begin, end);
