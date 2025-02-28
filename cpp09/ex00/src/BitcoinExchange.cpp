@@ -80,7 +80,12 @@ double    BitcoinExchange::getValue(const std::string& valueStr)
         throw std::invalid_argument("Error: bad input => " + valueStr);
 
     size_t  idx;
-    double value = std::stod(valueStr, &idx);
+    double value;
+    try{
+        value = std::stod(valueStr, &idx);
+    } catch (std::exception& e) {
+        throw std::invalid_argument("Error: bad input => " + valueStr);
+    }
 
     if (idx != valueStr.length())
         throw std::invalid_argument("Error: bad input => " + valueStr);
