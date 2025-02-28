@@ -3,6 +3,7 @@
 #include <fstream>
 #include <stdexcept>
 #include <iostream>
+#include <algorithm>
 
 BitcoinExchange::BitcoinExchange() {}
 
@@ -38,9 +39,12 @@ int BitcoinExchange::convertDate(const std::string& date)
 {
     int year, month, day;
 
-    if (sscanf(date.c_str(), "%d-%d-%d", &year, &month, &day) != 3) {
+    if (std::any_of(date.begin(), date.end(), ::iswspace))
         throw std::invalid_argument("Error: bad input => " + date);
-    }
+
+    if (sscanf(date.c_str(), "%d-%d-%d", &year, &month, &day) != 3)
+        throw std::invalid_argument("Error: bad input => " + date);
+
     if (year < 0 || month < 1 || month > 12 || day < 1 || day > 31)
         throw std::invalid_argument("Error: bad input => " + date);
     return year * 10000 + month * 100 + day;
@@ -72,11 +76,14 @@ void    BitcoinExchange::processInput(const std::string& inputFile)
 
 double    BitcoinExchange::getValue(const std::string& valueStr)
 {
-    size_t  idx;
+    if (std::any_of(valueStr.begin(), valueStr.end(), ::iswspace))
+        throw std::invalid_argument("Error: bad input => " + valueStr);
 
+    size_t  idx;
     double value = std::stod(valueStr, &idx);
+
     if (idx != valueStr.length())
-        throw std::invalid_argument("Error: bad input => " + std::to_string(value));
+        throw std::invalid_argument("Error: bad input => " + valueStr);
     if (value < 0)
         throw std::out_of_range("Error: not a positive number.");
     if (value > 1000)
