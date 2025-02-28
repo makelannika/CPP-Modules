@@ -25,13 +25,27 @@ void    BitcoinExchange::readRates()
     if (!data.is_open())
         throw std::ios_base::failure("could not open file");
 
+    std::string firstLine;
+    getline(data, firstLine);
+    if (firstLine != "date,exchange_rate")
+        throw std::invalid_argument("Error: invalid csv file content");
+
     for (std::string line; getline(data, line);)
     {
-        if (line == "date,exchange_rate")
-            continue;
         auto pos = line.find(",");
+        if (pos == std::string::npos)
+            throw std::invalid_argument("Error: invalid csv file content");
         std::string date = line.substr(0, pos);
-        rates[convertDate(date)] = std::stod(line.substr(pos + 1));
+        try {
+            size_t  idx;
+            std::string valueStr = line.substr(pos + 1);
+            double value = std::stod(valueStr, &idx);
+            if (idx != valueStr.length())
+                throw std::invalid_argument("Error: invalid csv file content");
+            rates[convertDate(date)] = value;
+        } catch (std::exception& e) {
+            throw std::invalid_argument("Error: invalid csv file content");
+        }
     }
 }
 
