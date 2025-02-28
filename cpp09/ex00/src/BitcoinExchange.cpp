@@ -56,10 +56,13 @@ void    BitcoinExchange::processInput(const std::string& inputFile)
     if (!input.is_open())
         throw std::ios_base::failure("Error: could not open file.");
 
+    std::string firstLine;
+    getline(input, firstLine);
+    if (firstLine != "date | value")
+        throw std::invalid_argument("Error: invalid input file content");
+    
     for (std::string line; getline(input, line);) {
         try {
-            if (line == "date | value")
-                continue;
             auto pos = line.find(" | ");
             if (pos == std::string::npos)
                 throw std::invalid_argument("Error: bad input => " + line);
