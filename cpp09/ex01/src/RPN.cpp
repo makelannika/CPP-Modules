@@ -19,11 +19,6 @@ RPN&    RPN::operator=(const RPN& other)
     return *this;
 }
 
-bool    RPN::isAllowedToken(const std::string& str)
-{
-    return (str == "+" || str == "-" || str == "*" || str == "/");
-}
-
 void    RPN::applyOperation(char token)
 {
     if (m_stack.size() < 2)
@@ -58,7 +53,7 @@ int RPN::evaluate(const std::string& expr)
     while (expression >> next) {
         if (next.size() == 1 && std::isdigit(next[0]))
             m_stack.push(std::stoi(next));
-        else if (isAllowedToken(next))
+        else if (next == "+" || next == "-" || next == "*" || next == "/")
             applyOperation(next[0]);
         else
             throw std::invalid_argument("Error: invalid expression");

@@ -7,7 +7,6 @@ class RPN {
     private:
         std::stack<int> m_stack;
 
-        bool    isAllowedToken(const std::string& str);
         void    applyOperation(char token);
 
     public:
