@@ -4,6 +4,7 @@
 #include <stdexcept>
 #include <utility>
 #include <iostream> // debug
+#include <algorithm>
 
 using pairVector = std::vector<std::pair<std::vector<int>, std::vector<int>>>;
 
@@ -40,6 +41,8 @@ void    PmergeMe::validateInput(const std::string& input)
             int     num = std::stoi(s, &idx);
             if (idx != s.length() || num < 0)
                 throw std::invalid_argument("Error: invalid input");
+            if (std::find(m_vector.begin(), m_vector.end(), num) != m_vector.end())
+                throw std::invalid_argument("Error: duplicate values not allowed");
             m_vector.push_back(num);
             m_deque.push_back(num);
         }
@@ -58,7 +61,7 @@ void    PmergeMe::sort()
         return;
 
     for (size_t i = 0; i <= m_vector.size() - m_unitSize * 2; i += m_unitSize * 2) {
-        std::cout << "COMPARING: " << m_vector[i + m_unitSize - 1] << " AND " << m_vector[i + m_unitSize * 2 - 1] << "\n";
+        // std::cout << "COMPARING: " << m_vector[i + m_unitSize - 1] << " AND " << m_vector[i + m_unitSize * 2 - 1] << "\n";
         if (m_vector[i + m_unitSize - 1] > m_vector[i + m_unitSize * 2 - 1]) {
             for (int j = 0; j < m_unitSize; j++) {
                 std::swap(m_vector[i + j], m_vector[i + m_unitSize + j]);
@@ -70,61 +73,71 @@ void    PmergeMe::sort()
     sort();
     m_unitSize /= 2;
 
-	std::cout << "UNIT SIZE: " << m_unitSize << "\n";
+	// std::cout << "UNIT SIZE: " << m_unitSize << "\n";
 	if (m_vector.size() / m_unitSize < 3)
 		return;
 
 	int 				units = m_vector.size() / m_unitSize; // 5
-	bool				odd = units % 2; // 1
+	bool				isOdd = units % 2; // 1
+	int             	odd = 0;
 	std::vector<int>	main;
 	std::vector<int>	pend;
-	std::vector<int>	odd_element;
-
-	// for (int i = 0; i < m_unitSize * 2; i++)
-	// 	main.push_back(m_vector[i]);
 
 	main.push_back(m_vector[m_unitSize - 1]);
 	main.push_back(m_vector[2 * m_unitSize - 1]);
 
-	std::cout << "(b1 a1) MAIN: ";
-	for (int i: main)
-		std::cout << i << " ";
-	
-	std::cout << "\n\n";
-
-	// for (int i = 2; i < units - odd; i++) {
-	// 	for (int j = 0; j < m_unitSize; j++) {
-	// 		if (i % 2 == 0)
-	// 			pend.push_back(m_vector[i * m_unitSize + j]);
-	// 		else
-	// 			main.push_back(m_vector[i * m_unitSize + j]);
-	// 	}	
-	// }
-
-	for (int i = 2; i < units - odd; i++) {
+	for (int i = 2; i < units - isOdd; i++) {
 		if (i % 2 == 0)
 			pend.push_back(m_vector[i * m_unitSize + m_unitSize - 1]);
 		else
 			main.push_back(m_vector[i * m_unitSize + m_unitSize - 1]);
 	}
+
+    if (isOdd)
+        odd = m_vector[units * m_unitSize - 1];
+
+    std::vector<int>    leftover(m_vector.begin() + units * m_unitSize, m_vector.end());
+
 	
-	for (int i = 0; i < pend.size(); i++) {
-		auto pos = std::lower_bound(main.begin(), main.end(), pend[i]);
-		for (int j = 0; j < m_unitSize; j++) {
-			
-		}
-	}
-	std::cout << "MAIN: ";
+    std::cout << "MAIN: ";
 	for (int i: main)
 		std::cout << i << " ";
-	
-	std::cout << "\n\n";
-
+	std::cout << "\n";
 	std::cout << "PEND: ";
 	for (int i: pend)
 		std::cout << i << " ";
+	std::cout << "\n";
+    std::cout << "ODD: " << odd << "\n";
+    std::cout << "LEFTOVER: ";
+    for (int i: leftover)
+        std::cout << i << " ";
+    std::cout << "\n";
 
-	std::cout << "\n\n";
+    insertion(main, pend, isOdd, odd, leftover);
+    for (size_t i = 0; i < m_vector.size(); i++)
+        std::cout << m_vector[i] << " ";
+    std::cout << "\n\n";
 }
 
+void    PmergeMe::insertion(std::vector<int>& main, std::vector<int>& pend, bool isOdd, int odd, std::vector<int>& leftover)
+{
+    for (int num: pend) {
+        auto  pos = std::upper_bound(main.begin(), main.end(), num);
+        main.insert(pos, num);
+    }
 
+    if (isOdd) {
+        auto pos = std::upper_bound(main.begin(), main.end(), odd);
+        main.insert(pos, odd);
+    }
+
+    std::vector<int>    newVec;
+   
+    for (int num: main) {
+        auto pos = std::find(m_vector.begin(), m_vector.end(), num);
+        newVec.insert(newVec.end(), pos - (m_unitSize - 1), pos + 1);
+    }
+    newVec.insert(newVec.end(), leftover.begin(), leftover.end());
+
+    m_vector = newVec;
+}
