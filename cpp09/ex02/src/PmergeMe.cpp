@@ -53,15 +53,10 @@ void    PmergeMe::validateInput(const std::string& input)
 
 void    PmergeMe::sort()
 {
-    for (size_t i = 0; i < m_vector.size(); i++)
-        std::cout << m_vector[i] << " ";
-    std::cout << "\n\n";
-
     if (m_vector.size() / m_unitSize < 2)
         return;
 
     for (size_t i = 0; i <= m_vector.size() - m_unitSize * 2; i += m_unitSize * 2) {
-        // std::cout << "COMPARING: " << m_vector[i + m_unitSize - 1] << " AND " << m_vector[i + m_unitSize * 2 - 1] << "\n";
         if (m_vector[i + m_unitSize - 1] > m_vector[i + m_unitSize * 2 - 1]) {
             for (int j = 0; j < m_unitSize; j++) {
                 std::swap(m_vector[i + j], m_vector[i + m_unitSize + j]);
@@ -73,12 +68,11 @@ void    PmergeMe::sort()
     sort();
     m_unitSize /= 2;
 
-	// std::cout << "UNIT SIZE: " << m_unitSize << "\n";
 	if (m_vector.size() / m_unitSize < 3)
 		return;
 
-	int 				units = m_vector.size() / m_unitSize; // 5
-	bool				isOdd = units % 2; // 1
+	int 				units = m_vector.size() / m_unitSize;
+	bool				isOdd = units % 2;
 	int             	odd = 0;
 	std::vector<int>	main;
 	std::vector<int>	pend;
@@ -98,28 +92,13 @@ void    PmergeMe::sort()
 
     std::vector<int>    leftover(m_vector.begin() + units * m_unitSize, m_vector.end());
 
-	
-    std::cout << "MAIN: ";
-	for (int i: main)
-		std::cout << i << " ";
-	std::cout << "\n";
-	std::cout << "PEND: ";
-	for (int i: pend)
-		std::cout << i << " ";
-	std::cout << "\n";
-    std::cout << "ODD: " << odd << "\n";
-    std::cout << "LEFTOVER: ";
-    for (int i: leftover)
-        std::cout << i << " ";
-    std::cout << "\n";
-
-    insertion(main, pend, isOdd, odd, leftover);
+    insert(main, pend, isOdd, odd, leftover);
     for (size_t i = 0; i < m_vector.size(); i++)
         std::cout << m_vector[i] << " ";
     std::cout << "\n\n";
 }
 
-void    PmergeMe::insertion(std::vector<int>& main, std::vector<int>& pend, bool isOdd, int odd, std::vector<int>& leftover)
+void    PmergeMe::insert(std::vector<int>& main, std::vector<int>& pend, bool isOdd, int odd, std::vector<int>& leftover)
 {
     for (int num: pend) {
         auto  pos = std::upper_bound(main.begin(), main.end(), num);
