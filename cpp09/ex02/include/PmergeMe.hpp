@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <deque>
+#include <string>
 
 class PmergeMe {
     private:
