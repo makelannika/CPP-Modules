@@ -42,7 +42,7 @@ void    PmergeMe::validateInput(const std::string& input)
             if (idx != s.length() || num < 0)
                 throw std::invalid_argument("Error: invalid input");
             if (std::find(m_vector.begin(), m_vector.end(), num) != m_vector.end())
-                throw std::invalid_argument("Error: duplicate values not allowed");
+                throw std::invalid_argument("Error: invalid input");
             m_vector.push_back(num);
             m_deque.push_back(num);
         }
