@@ -44,6 +44,7 @@ void    BitcoinExchange::readRates()
                 throw std::invalid_argument("Error: invalid csv file content");
             rates[convertDate(date)] = value;
         } catch (std::exception& e) {
+            std::cout << e.what() << "\n";
             throw std::invalid_argument("Error: invalid csv file content");
         }
     }
@@ -59,8 +60,15 @@ int BitcoinExchange::convertDate(const std::string& date)
     if (sscanf(date.c_str(), "%d-%d-%d", &year, &month, &day) != 3)
         throw std::invalid_argument("Error: bad input => " + date);
 
-    if (year < 0 || month < 1 || month > 12 || day < 1 || day > 31)
-        throw std::invalid_argument("Error: bad input => " + date);
+    if ((year < 0 || month < 1 || month > 12 || day < 0)
+        || (month == 2 && year % 4 != 0 && day > 28)
+        || (month == 2 && year % 4 == 0 && day > 29)
+        || (month > 7 && month % 2 == 0 && day > 31)
+        || (month > 7 && month % 2 != 0 && day > 30)
+        || (month < 8 && month % 2 == 0 && day > 30)
+        || (month < 8 && month % 2 != 0 && day > 31))
+            throw std::invalid_argument("Error: bad input => " + date);
+
     return year * 10000 + month * 100 + day;
 }
 
