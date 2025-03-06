@@ -166,3 +166,51 @@ void    PmergeMe::sortDeque()
 
 	insert(m_deque, main, pend, isOdd, odd, leftover);
 }
+
+int jacobsthal(int k)
+{
+    return round((pow(2, k + 1) + pow(-1, k)) / 3);
+}
+
+template<typename C>
+void	insertion(C& cont, C& main, C& pend, bool isOdd, int odd, C& leftover)
+{
+	int k = 2;
+	int prev = 1;
+
+	if (pend.size() > 1) {
+		while (!pend.empty()) {
+			int jc = jacobsthal(k); // 3, 5, 11, 21...
+			int insert = jc - prev; // 2, 2, 6, 10... elements
+			prev = jc; // 3, 5, 11, 21...
+			k++; // 3, 4, 5, 6...
+
+			if (insert > pend.size())
+				break;
+			// if insert <= pend.size() 
+			// -> insert elements backwards from pend.begin() + insert - 1 and erase them
+		}
+	}
+
+	if (!pend.empty()) {
+		for (int num: pend) {
+			auto  pos = std::upper_bound(main.begin(), main.end(), num);
+			main.insert(pos, num);
+		}
+	}
+
+	if (isOdd) {
+		auto pos = std::upper_bound(main.begin(), main.end(), odd);
+		main.insert(pos, odd);
+	}
+
+	C	newCont;
+
+	for (int num: main) {
+		auto pos = std::find(cont.begin(), cont.end(), num);
+		newCont.insert(newCont.end(), pos - (m_unitSize - 1), pos + 1);
+	}
+	newCont.insert(newCont.end(), leftover.begin(), leftover.end());
+
+	cont = newCont;
+}
