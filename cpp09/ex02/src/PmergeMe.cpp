@@ -4,8 +4,8 @@
 #include <stdexcept>
 #include <utility>
 #include <iostream> // debug
-#include <algorithm>
 #include <chrono>
+#include <math.h>
 
 PmergeMe::PmergeMe(const std::string& input) : m_unitSize(1)
 {
@@ -120,30 +120,7 @@ void    PmergeMe::sortVector()
 
     std::vector<int>    leftover(m_vector.begin() + units * m_unitSize, m_vector.end());
 
-    insertVector(main, pend, isOdd, odd, leftover);
-}
-
-void    PmergeMe::insertVector(std::vector<int>& main, std::vector<int>& pend, bool isOdd, int odd, std::vector<int>& leftover)
-{
-    for (int num: pend) {
-        auto  pos = std::upper_bound(main.begin(), main.end(), num);
-        main.insert(pos, num);
-    }
-
-    if (isOdd) {
-        auto pos = std::upper_bound(main.begin(), main.end(), odd);
-        main.insert(pos, odd);
-    }
-
-    std::vector<int>    newVec;
-   
-    for (int num: main) {
-        auto pos = std::find(m_vector.begin(), m_vector.end(), num);
-        newVec.insert(newVec.end(), pos - (m_unitSize - 1), pos + 1);
-    }
-    newVec.insert(newVec.end(), leftover.begin(), leftover.end());
-
-    m_vector = newVec;
+	insert(m_vector, main, pend, isOdd, odd, leftover);
 }
 
 void    PmergeMe::sortDeque()
@@ -187,28 +164,5 @@ void    PmergeMe::sortDeque()
 
     std::deque<int>    leftover(m_deque.begin() + units * m_unitSize, m_deque.end());
 
-    insertDeque(main, pend, isOdd, odd, leftover);
-}
-
-void    PmergeMe::insertDeque(std::deque<int>& main, std::deque<int>& pend, bool isOdd, int odd, std::deque<int>& leftover)
-{
-    for (int num: pend) {
-        auto  pos = std::upper_bound(main.begin(), main.end(), num);
-        main.insert(pos, num);
-    }
-
-    if (isOdd) {
-        auto pos = std::upper_bound(main.begin(), main.end(), odd);
-        main.insert(pos, odd);
-    }
-
-    std::deque<int>    newDeq;
-   
-    for (int num: main) {
-        auto pos = std::find(m_deque.begin(), m_deque.end(), num);
-        newDeq.insert(newDeq.end(), pos - (m_unitSize - 1), pos + 1);
-    }
-    newDeq.insert(newDeq.end(), leftover.begin(), leftover.end());
-
-    m_deque = newDeq;
+	insert(m_deque, main, pend, isOdd, odd, leftover);
 }

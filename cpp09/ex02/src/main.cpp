@@ -10,8 +10,8 @@ int main(int argc, char** argv)
     }
 
     try {
-		PmergeMe pmm(argv[1]);
-		pmm.sort();
+		PmergeMe mergeInsertion(argv[1]);
+		mergeInsertion.sort();
     } catch (std::exception& e) {
         std::cerr << e.what() << "\n";
     }
