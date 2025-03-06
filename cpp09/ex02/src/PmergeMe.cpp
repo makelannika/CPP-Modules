@@ -18,6 +18,9 @@ PmergeMe::PmergeMe(const PmergeMe& other)
 {
     m_vector = other.m_vector;
     m_deque = other.m_deque;
+    m_vecTime = other.m_vecTime;
+    m_deqTime = other.m_deqTime;
+    m_unitSize = other.m_unitSize;
 }
 
 PmergeMe&   PmergeMe::operator=(const PmergeMe& other)
@@ -25,6 +28,9 @@ PmergeMe&   PmergeMe::operator=(const PmergeMe& other)
     if (this != &other) {
         m_vector = other.m_vector;
         m_deque = other.m_deque;
+        m_vecTime = other.m_vecTime;
+        m_deqTime = other.m_deqTime;
+        m_unitSize = other.m_unitSize;
     }
     return *this;
 }
