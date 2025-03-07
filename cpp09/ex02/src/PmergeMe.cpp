@@ -12,6 +12,9 @@ PmergeMe::PmergeMe(const std::string& input) : m_vecTime(0), m_deqTime(0), m_uni
 	auto end = std::chrono::high_resolution_clock::now();
 	m_vecTime += std::chrono::duration<double, std::micro>(end - start).count();
 
+	if (m_vector.empty())
+		throw std::invalid_argument("invalid input");
+
 	start = std::chrono::high_resolution_clock::now();
 	initContainer(input, m_deque);
 	end = std::chrono::high_resolution_clock::now();
