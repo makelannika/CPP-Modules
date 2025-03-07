@@ -44,7 +44,6 @@ void    BitcoinExchange::readRates()
                 throw std::invalid_argument("Error: invalid csv file content");
             rates[convertDate(date)] = value;
         } catch (std::exception& e) {
-            std::cout << e.what() << "\n";
             throw std::invalid_argument("Error: invalid csv file content");
         }
     }
@@ -76,7 +75,7 @@ void    BitcoinExchange::processInput(const std::string& inputFile)
 {
     std::ifstream input(inputFile, std::ios::binary);
     if (!input.is_open())
-        throw std::ios_base::failure("Error: could not open file.");
+        throw std::ios_base::failure("Error: could not open file");
 
     std::string firstLine;
     getline(input, firstLine);

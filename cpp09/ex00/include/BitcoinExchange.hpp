@@ -2,6 +2,7 @@
 # define BITCOINEXCHANGE
 
 #include <map>
+#include <string>
 
 class BitcoinExchange {
     private:
