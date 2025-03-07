@@ -5,7 +5,7 @@
 #include <chrono>
 #include <math.h>
 
-PmergeMe::PmergeMe(const std::string& input) : m_vecTime(0), m_deqTime(0), m_unitSize(1)
+PmergeMe::PmergeMe(char** input) : m_vecTime(0), m_deqTime(0), m_unitSize(1)
 {
 	auto start = std::chrono::high_resolution_clock::now();
     initContainer(input, m_vector);

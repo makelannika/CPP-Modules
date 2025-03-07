@@ -22,13 +22,11 @@ class PmergeMe {
         int     jacobsthal(int k);
 
 		template <typename C>
-		void    initContainer(const std::string& input, C& cont)
+		void    initContainer(char** input, C& cont)
 		{
-			std::istringstream  inputStream(input);
-			std::string         s;
-
 			try {
-				while (inputStream >> s) {
+				for (int i = 1; input[i]; i++) {
+					std::string s(input[i]);
 					size_t  idx;
 					int     num = std::stoi(s, &idx);
 					if (idx != s.length() || num < 0)
@@ -94,7 +92,7 @@ class PmergeMe {
         }
 
     public:
-        PmergeMe(const std::string& input);
+        PmergeMe(char** input);
         ~PmergeMe();
         PmergeMe(const PmergeMe& other);
         PmergeMe&   operator=(const PmergeMe& other);
