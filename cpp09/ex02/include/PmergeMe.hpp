@@ -21,35 +21,12 @@ class PmergeMe {
 		void	display(const std::vector<int>& unsorted);
         int     jacobsthal(int k);
 
-		template<typename C>
-		void    insert(C& cont, C& main, C& pend, bool isOdd, int odd, C& leftover)
-		{
-			for (int num: pend) {
-				auto  pos = std::upper_bound(main.begin(), main.end(), num);
-				main.insert(pos, num);
-			}
-
-			if (isOdd) {
-				auto pos = std::upper_bound(main.begin(), main.end(), odd);
-				main.insert(pos, odd);
-			}
-
-			C	newCont;
-		
-			for (int num: main) {
-				auto pos = std::find(cont.begin(), cont.end(), num);
-				newCont.insert(newCont.end(), pos - (m_unitSize - 1), pos + 1);
-			}
-			newCont.insert(newCont.end(), leftover.begin(), leftover.end());
-
-			cont = newCont;
-		}
-
         template<typename C>
         void	insertion(C& cont, C& main, C& pend, bool isOdd, int odd, C& leftover)
         {
             int k = 2;
             int prev = 1;
+			int inserted = 0;
 
             if (pend.size() > 1) {
                 while (!pend.empty()) {
@@ -57,17 +34,18 @@ class PmergeMe {
                     int insert = jc - prev; // 2, 2, 6, 10... elements
                     prev = jc; // 3, 5, 11, 21...
                     k++; // 3, 4, 5, 6...
-
+				
                     if (insert > (int)pend.size())
                         break;
-                    // if insert <= pend.size() 
-                    // -> insert elements backwards from pend.begin() + insert - 1 and erase them
+                    // insert (insert amount of) elements backwards from the beginning of pend and erase them
+					// area of binary search for each element is from beginning of main up to corresponding a of b being inserted
                     for (auto curr = pend.begin() + insert - 1; curr >= pend.begin(); curr--) {
                         int num = *(curr);
-                        auto pos = std::upper_bound(main.begin(), main.end(), num);
+                        auto pos = std::upper_bound(main.begin(), main.begin() + jc + inserted, num);
                         main.insert(pos, num);
                         pend.erase(curr);
                     }
+					inserted += insert;
                 }
             }
 
