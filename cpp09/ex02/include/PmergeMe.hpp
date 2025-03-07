@@ -22,7 +22,7 @@ class PmergeMe {
         int     jacobsthal(int k);
 
         template<typename C>
-        void	insertion(C& cont, C& main, C& pend, bool isOdd, int odd, C& leftover)
+        void	insert(C& cont, C& main, C& pend, bool isOdd, int odd, C& leftover)
         {
             int k = 2;
             int prev = 1;

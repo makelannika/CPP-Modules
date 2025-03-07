@@ -127,7 +127,7 @@ void    PmergeMe::sortVector()
 
     std::vector<int>    leftover(m_vector.begin() + units * m_unitSize, m_vector.end());
 
-    insertion(m_vector, main, pend, isOdd, odd, leftover);
+    insert(m_vector, main, pend, isOdd, odd, leftover);
 }
 
 void    PmergeMe::sortDeque()
@@ -171,7 +171,7 @@ void    PmergeMe::sortDeque()
 
     std::deque<int>    leftover(m_deque.begin() + units * m_unitSize, m_deque.end());
 
-    insertion(m_deque, main, pend, isOdd, odd, leftover);
+    insert(m_deque, main, pend, isOdd, odd, leftover);
 }
 
 int PmergeMe::jacobsthal(int k)
