@@ -1,15 +1,21 @@
 #include "PmergeMe.hpp"
 
-#include <sstream>
-#include <stdexcept>
+#include <iostream>
 #include <utility>
-#include <iostream> // debug
 #include <chrono>
 #include <math.h>
 
-PmergeMe::PmergeMe(const std::string& input) : m_unitSize(1)
+PmergeMe::PmergeMe(const std::string& input) : m_vecTime(0), m_deqTime(0), m_unitSize(1)
 {
-    validateInput(input);
+	auto start = std::chrono::high_resolution_clock::now();
+    initContainer(input, m_vector);
+	auto end = std::chrono::high_resolution_clock::now();
+	m_vecTime += std::chrono::duration<double, std::micro>(end - start).count();
+
+	start = std::chrono::high_resolution_clock::now();
+	initContainer(input, m_deque);
+	end = std::chrono::high_resolution_clock::now();
+	m_deqTime += std::chrono::duration<double, std::micro>(end - start).count();
 }
 
 PmergeMe::~PmergeMe() {}
@@ -35,27 +41,6 @@ PmergeMe&   PmergeMe::operator=(const PmergeMe& other)
     return *this;
 }
 
-void    PmergeMe::validateInput(const std::string& input)
-{
-    std::istringstream  inputStream(input);
-    std::string         s;
-
-    try {
-        while (inputStream >> s) {
-            size_t  idx;
-            int     num = std::stoi(s, &idx);
-            if (idx != s.length() || num < 0)
-                throw std::invalid_argument("Error: invalid input");
-            if (std::find(m_vector.begin(), m_vector.end(), num) != m_vector.end())
-                throw std::invalid_argument("Error: invalid input");
-            m_vector.push_back(num);
-            m_deque.push_back(num);
-        }
-    } catch (std::exception& e) {
-        throw std::invalid_argument("Error: invalid input");
-    }
-}
-
 void	PmergeMe::display(const std::vector<int>& unsorted)
 {
 	std::cout << "Before: ";
@@ -77,11 +62,12 @@ void    PmergeMe::sort()
 	auto start = std::chrono::high_resolution_clock::now();
 	sortVector();
 	auto end = std::chrono::high_resolution_clock::now();
-	m_vecTime = std::chrono::duration<double, std::micro>(end - start).count();
+	m_vecTime += std::chrono::duration<double, std::micro>(end - start).count();
+
 	start = std::chrono::high_resolution_clock::now();
 	sortDeque();
 	end = std::chrono::high_resolution_clock::now();
-	m_deqTime = std::chrono::duration<double, std::micro>(end - start).count();
+	m_deqTime += std::chrono::duration<double, std::micro>(end - start).count();
 
 	display(unsorted);
 }

@@ -4,8 +4,9 @@
 #include <vector>
 #include <deque>
 #include <string>
+#include <sstream>
 #include <algorithm>
-#include <iostream> // debug
+#include <stdexcept>
 
 class PmergeMe {
     private:
@@ -15,11 +16,31 @@ class PmergeMe {
 		double				m_deqTime;
 		int					m_unitSize;
 
-		void	validateInput(const std::string& input);
 		void	sortVector();
 		void	sortDeque();
 		void	display(const std::vector<int>& unsorted);
         int     jacobsthal(int k);
+
+		template <typename C>
+		void    initContainer(const std::string& input, C& cont)
+		{
+			std::istringstream  inputStream(input);
+			std::string         s;
+
+			try {
+				while (inputStream >> s) {
+					size_t  idx;
+					int     num = std::stoi(s, &idx);
+					if (idx != s.length() || num < 0)
+						throw std::invalid_argument("Error: invalid input");
+					if (std::find(cont.begin(), cont.end(), num) != cont.end())
+						throw std::invalid_argument("Error: invalid input");
+					cont.push_back(num);
+				}
+			} catch (std::exception& e) {
+				throw std::invalid_argument("Error: invalid input");
+			}
+		}
 
         template<typename C>
         void	insert(C& cont, C& main, C& pend, bool isOdd, int odd, C& leftover)
