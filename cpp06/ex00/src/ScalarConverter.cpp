@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:58:40 by amakela           #+#    #+#             */
-/*   Updated: 2024/11/23 11:26:00 by amakela          ###   ########.fr       */
+/*   Updated: 2025/03/20 16:25:47 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,13 @@ void display(T value) {
 	else {
         std::cout << "char: '" << static_cast<char>(value) << "'" << std::endl;
 	}
+	
 	if (value < static_cast<double>(INT_MIN) || value > static_cast<double>(INT_MAX) || value != value)
         std::cout << "int: impossible" << std::endl;
 	else {
         std::cout << "int: " << static_cast<int>(value) << std::endl;
 	}
+	
 	if (value < static_cast<double>(-DBL_MAX) || value > static_cast<double>(DBL_MAX))
 		std::cout << "float: " << (value < 0 ? "" : "+") << static_cast<float>(value)  << "f" << std::endl;
 	else if (value < static_cast<double>(-FLT_MAX) || value > static_cast<double>(FLT_MAX))
@@ -33,6 +35,7 @@ void display(T value) {
 	else {
 		std::cout << "float: " << static_cast<float>(value) << "f" << std::endl;
 	}
+	
 	if (value < static_cast<double>(-DBL_MAX) || value > static_cast<double>(DBL_MAX))
 		std::cout << "double: " << (value < 0 ? "" : "+") << static_cast<double>(value) << std::endl;
 	else
